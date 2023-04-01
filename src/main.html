@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <title>3D Hollow Object</title>
+  </head>
+
+  <body>
+    <div class="main-container">
+      <div class="left-side-bar">
+        <div class="left-menu">
+          <h1>3D Hollow Object</h1>
+
+          <button
+            id="help-button"
+            onclick="window.open('./help.html','_blank')"
+          >
+            Help
+          </button>
+
+          <h2>Save & Load</h2>
+          <div class="save-container">
+            <button onclick="saveShapes()" id="save-button">Save</button>
+            <button onclick="loadShapes()" id="load-button">Load</button>
+          </div>
+
+          <div class="view-config-container">
+            <div class="camera-settings">
+              <h2>Camera Settings</h2>
+
+              <div class="sliders-container">
+                <label for="camera-radius" class="slider-label"
+                  >Camera Radius</label
+                >
+                <input
+                  type="range"
+                  id="camera-radius"
+                  name="camera-radius"
+                  min="0"
+                  max="100"
+                  value="50"
+                  oninput="changeRadius()"
+                />
+                <span id="radius-value">50</span>
+                <label for="camera-angle" class="slider-label"
+                  >Camera Angle</label
+                >
+                <div>
+                  <span>X-axis</span>
+                  <input
+                    type="range"
+                    id="camera-angle-x"
+                    name="camera-angle-x"
+                    min="-90"
+                    max="90"
+                    value="0"
+                    oninput="changeAngleX()"
+                  />
+                  <span id="angle-value-x">0</span>
+                </div>
+                <div>
+                  <span>Y-axis</span>
+                  <input
+                    type="range"
+                    id="camera-angle-y"
+                    name="camera-angle-y"
+                    min="-360"
+                    max="360"
+                    value="0"
+                    oninput="changeAngleY()"
+                  />
+                  <span id="angle-value-y">0</span>
+                </div>
+                <div>
+                  <span>Z-axis</span>
+                  <input
+                    type="range"
+                    id="camera-angle-z"
+                    name="camera-angle-z"
+                    min="-90"
+                    max="90"
+                    value="0"
+                    oninput="changeAngleZ()"
+                  />
+                  <span id="angle-value-z">0</span>
+                </div>
+              </div>
+
+              <label for="projection-mode" class="slider-label"
+                >Projection Mode</label
+              >
+              <select
+                name="projection-mode"
+                id="projection-mode"
+                onchange="changeProjection()"
+              >
+                <option value="orthographic">Orthographic</option>
+                <option value="oblique">Oblique</option>
+                <option value="perspective">Perspective</option>
+              </select>
+
+              <button id="reset-button" onclick="resetCamera()">
+                Reset Camera Settings
+              </button>
+
+              <div class="checkboxes-container">
+                <input
+                  type="checkbox"
+                  name="animate"
+                  id="toggleAnimation"
+                  onchange="toggleAnimation()"
+                />
+                <label for="animate">Animate</label>
+                <input
+                  type="checkbox"
+                  name="toggleShadder"
+                  id="toggleShadder"
+                  onchange="toggleShadder()"
+                  checked
+                />
+                <label for="toggleShadder">Toggle Shadder</label>
+              </div>
+            </div>
+          </div>
+
+          <button onclick="clearShapes()" id="clear-button">
+            Clear Canvas
+          </button>
+        </div>
+      </div>
+
+      <div class="canvas-container">
+        <canvas width="700px" height="700px" id="canvas">
+          Your browser does not support HTML5
+        </canvas>
+      </div>
+
+      <div class="right-side-bar" id="sidebar">
+        <h2>Transform</h2>
+        <h3>Rotate</h3>
+        <div>
+          <label for="x-rotate" class="slider-label"
+            >X: <span id="x-angle">0</span></label
+          >
+          <input
+            type="range"
+            id="x-rotate"
+            name="x-rotate"
+            min="-360"
+            max="360"
+            value="0"
+            oninput="rotateX({value})"
+          />
+        </div>
+        <div>
+          <label for="y-rotate" class="slider-label"
+            >Y: <span id="y-angle">0</span></label
+          >
+          <input
+            type="range"
+            id="y-rotate"
+            name="y-rotate"
+            min="-360"
+            max="360"
+            value="0"
+            oninput="rotateY({value})"
+          />
+        </div>
+        <div>
+          <label for="z-rotate" class="slider-label"
+            >Z: <span id="z-angle">0</span></label
+          >
+          <input
+            type="range"
+            id="z-rotate"
+            name="z-rotate"
+            min="-360"
+            max="360"
+            value="0"
+            oninput="rotateZ({value})"
+          />
+        </div>
+        <h3>Translate</h3>
+        <div>
+          <label for="x-translate" class="slider-label"
+            >X: <span id="x-distance">0</span></label
+          >
+          <input
+            type="range"
+            id="x-translate"
+            name="x-translate"
+            min="-100"
+            max="100"
+            value="0"
+            oninput="translateX({value})"
+          />
+        </div>
+        <div>
+          <label for="y-translate" class="slider-label"
+            >Y: <span id="y-distance">0</span></label
+          >
+          <input
+            type="range"
+            id="y-translate"
+            name="y-translate"
+            min="-100"
+            max="100"
+            value="0"
+            oninput="translateY({value})"
+          />
+        </div>
+        <div>
+          <label for="z-translate" class="slider-label"
+            >Z: <span id="z-distance">0</span></label
+          >
+          <input
+            type="range"
+            id="z-translate"
+            name="z-translate"
+            min="-100"
+            max="100"
+            value="0"
+            oninput="translateZ({value})"
+          />
+        </div>
+        <h3>Scale</h3>
+        <div>
+          <label for="x-scale" class="slider-label"
+            >X: <span id="x-ratio">10</span></label
+          >
+          <input
+            type="range"
+            id="x-scale"
+            name="x-scale"
+            min="1"
+            max="100"
+            value="10"
+            oninput="scaleX({value})"
+          />
+        </div>
+        <div>
+          <label for="y-scale" class="slider-label"
+            >Y: <span id="y-ratio">10</span></label
+          >
+          <input
+            type="range"
+            id="y-scale"
+            name="y-scale"
+            min="1"
+            max="100"
+            value="10"
+            oninput="scaleY({value})"
+          />
+        </div>
+        <div>
+          <label for="z-scale" class="slider-label"
+            >Z: <span id="z-ratio">10</span></label
+          >
+          <input
+            type="range"
+            id="z-scale"
+            name="z-scale"
+            min="1"
+            max="100"
+            value="10"
+            oninput="scaleZ({value})"
+          />
+        </div>
+        <div class="treecontainer" id ="treecontainer">
+          
+          Tree: <span id="selectedobject">Nothing</span>
+        
+        </div>
+      </div>
+    </div>
+
+    <script src="js/init.js"></script>
+    <script src="js/utils.js"></script>
+    <!-- <script src="loadAndSave.js"></script> -->
+    <script src="js/models/object.js"></script>
+    <script src="js/models/block.js"></script>
+    <script src="js/models/loadexperiment.js"></script>
+    
+    <script src="js/camera.js"></script>
+    <script src="js/transform.js"></script>
+
+    <script src="js/main.js"></script>
+
+  </body>
+</html>
