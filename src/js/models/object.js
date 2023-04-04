@@ -43,7 +43,16 @@ class Object {
       child.transformSubTree(child.childTransformationMatrix)
     }); 
   }
+  getCenter(){
+    var vec4_center = this.center;
+    vec4_center[3] = 0;
+    
+    
+    let temp = multiply(this.selfTransformationMatrix,this.parentTransformationMatrix); 
+    let finalTransformationMatrix = multiply(this.childTransformationMatrix,temp); 
 
+    return multiplyMatrix4AndVec4(finalTransformationMatrix,vec4_center);
+  }
   draw(isUsingShader=false) {
     if (this.batang == null) {
       return;

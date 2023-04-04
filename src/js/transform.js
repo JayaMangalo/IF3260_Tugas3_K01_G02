@@ -5,11 +5,11 @@
 // var translationSTree = [0,0,0];
 // var rotationSTree = [0,0,0];
 // var scalationSTree = [10,10,10]; //10 is normal , 100 is 10x bigger
-var matrix = []
 
 //Function to transform ONLY the object 
 function transformObject(){
   // var matrix = m4.projection(gl.canvas.clientWidth, gl.canvas.clientHeight, 400); 
+  var matrix = []
   convertToIdentityMatrix(matrix)
   matrix = translate(matrix, selectedObject.translation_arr[0], selectedObject.translation_arr[1], selectedObject.translation_arr[2]);
   matrix = xRotate(matrix, selectedObject.rotation[0]); 
@@ -25,6 +25,7 @@ function transformObject(){
 //Function to transform object's subtree (including himself) 
 function transformObjectSubTree(){
    // var matrix = m4.projection(gl.canvas.clientWidth, gl.canvas.clientHeight, 400); 
+  var matrix = []
   convertToIdentityMatrix(matrix)
   matrix = translate(matrix, selectedObject.translationSTree[0], selectedObject.translationSTree[1], selectedObject.translationSTree[2]);
   matrix = xRotate(matrix, selectedObject.rotationSTree[0]);

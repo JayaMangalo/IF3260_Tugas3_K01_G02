@@ -264,6 +264,21 @@ function multiply(a, b) {
     b30 * a03 + b31 * a13 + b32 * a23 + b33 * a33,
   ];
 }
+function multiplyMatrix4AndVec4(matrix, vec4) {
+  if (matrix.length !== 16 || vec4.length !== 4) {
+    return [0,0,0,0]
+  }
+
+  const result = [0, 0, 0, 0];
+
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
+      result[i] += matrix[i * 4 + j] * vec4[j];
+    }
+  }
+
+  return result;
+}
 
 //|-----------------BASIC TRANSFORMATION START-----------------------|
 function xRotation(radian) {

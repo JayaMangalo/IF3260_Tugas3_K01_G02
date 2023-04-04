@@ -15,7 +15,6 @@ function onLoad() {
   loadEXPERIMENT();
 
   traverseTree(shapes)
-
   redraw()
 
   document.getElementById("camera-angle-x").value = -30 //for testing purposes, remove later
@@ -62,14 +61,6 @@ function addListeners(){
 function setCurrentObject(index){
   selectedObject = TreeArray[index]
   document.getElementById("selectedobject").innerText = selectedObject.name 
-  
-  //load slider savestates
-  translation_arr = selectedObject.translation_arr;
-  rotation = selectedObject.rotation;
-  scalation = selectedObject.scalation;
-  translationSTree = selectedObject.translationSTree;
-  rotationSTree = selectedObject.rotationSTree;
-  scalationSTree = selectedObject.scalationSTree;
 }
 
 function traverseTree(){
