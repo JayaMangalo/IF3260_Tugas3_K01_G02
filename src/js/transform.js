@@ -1,121 +1,115 @@
-var translation_arr = [0,0,0];
-var rotation = [0,0,0];
-var scalation = [10,10,10]; //10 is normal , 100 is 10x bigger
+// var translation_arr = [0,0,0];
+// var rotation = [0,0,0];
+// var scalation = [10,10,10]; //10 is normal , 100 is 10x bigger
 
-var translationSTree = [0,0,0];
-var rotationSTree = [0,0,0];
-var scalationSTree = [10,10,10]; //10 is normal , 100 is 10x bigger
+// var translationSTree = [0,0,0];
+// var rotationSTree = [0,0,0];
+// var scalationSTree = [10,10,10]; //10 is normal , 100 is 10x bigger
+var matrix = []
 
+//Function to transform ONLY the object 
 function transformObject(){
   // var matrix = m4.projection(gl.canvas.clientWidth, gl.canvas.clientHeight, 400); 
-  var matrix = []
   convertToIdentityMatrix(matrix)
-  matrix = translate(matrix, translation_arr[0], translation_arr[1], translation_arr[2]);
-  matrix = xRotate(matrix, rotation[0]);
-  matrix = yRotate(matrix, rotation[1]);
-  matrix = zRotate(matrix, rotation[2]);
-  matrix = scale(matrix, scalation[0]/10, scalation[1]/10, scalation[2]/10);
+  matrix = translate(matrix, selectedObject.translation_arr[0], selectedObject.translation_arr[1], selectedObject.translation_arr[2]);
+  matrix = xRotate(matrix, selectedObject.rotation[0]); 
+  matrix = yRotate(matrix, selectedObject.rotation[1]);
+  matrix = zRotate(matrix, selectedObject.rotation[2]);
+  matrix = scale(matrix, selectedObject.scalation[0]/10, selectedObject.scalation[1]/10, selectedObject.scalation[2]/10);
 
-  // selectedObject.transformSelf(matrix);
-  selectedObject.transformSubTree(matrix); //activated for testing, revert when done
+  selectedObject.transformSelf(matrix);
+  // selectedObject.transformSubTree(matrix); //activated for testing, revert when done
   redraw()
 }
 
+//Function to transform object's subtree (including himself) 
 function transformObjectSubTree(){
    // var matrix = m4.projection(gl.canvas.clientWidth, gl.canvas.clientHeight, 400); 
-  var matrix = []
   convertToIdentityMatrix(matrix)
-  matrix = translate(matrix, translationSTree[0], translationSTree[1], translationSTree[2]);
-  matrix = xRotate(matrix, rotationSTree[0]);
-  matrix = yRotate(matrix, rotationSTree[1]);
-  matrix = zRotate(matrix, rotationSTree[2]);
-  matrix = scale(matrix, scalationSTree[0]/10, scalationSTree[1]/10, scalationSTree[2]/10);
+  matrix = translate(matrix, selectedObject.translationSTree[0], selectedObject.translationSTree[1], selectedObject.translationSTree[2]);
+  matrix = xRotate(matrix, selectedObject.rotationSTree[0]);
+  matrix = yRotate(matrix, selectedObject.rotationSTree[1]);
+  matrix = zRotate(matrix, selectedObject.rotationSTree[2]);
+  matrix = scale(matrix, selectedObject.scalationSTree[0]/10, selectedObject.scalationSTree[1]/10, selectedObject.scalationSTree[2]/10);
 
   selectedObject.transformSubTree(matrix);
   redraw()
 
 }
-// for main body //todo: update slider values (me too lazy)
-function rotateX(degree){
-  rotation[0] = (degree.value * Math.PI) / 180;
-  selectedObject.rotation[0] = rotation[0] //savestate 
+
+//Transformation for individual sliders for OBJECT //todo: update slider values (me too lazy)
+function rotateX(degree){ 
+  selectedObject.rotation[0] = (degree.value  * Math.PI) / 180; 
+  transformObject()
+}
+
+function rotateY(degree){ 
+  selectedObject.rotation[1] = (degree.value * Math.PI) / 180;  
   transformObject()
 } 
-function rotateY(degree){
-  rotation[1] = (degree.value * Math.PI) / 180;
-  selectedObject.rotation[1] = rotation[1] //savestate 
+function rotateZ(degree){ 
+  selectedObject.rotation[2] = (degree.value * Math.PI) / 180;  
   transformObject()
 } 
-function rotateZ(degree){
-  rotation[2] = (degree.value * Math.PI) / 180;
-  selectedObject.rotation[2] = rotation[2] //savestate 
+function translateX(degree){ 
+  selectedObject.translation_arr[0] = degree.value;  
   transformObject()
 } 
-function translateX(degree){
-  translation_arr[0] = degree.value;
-  selectedObject.translation_arr[0] = translation_arr[0] //savestate 
+function translateY(degree){  
+  selectedObject.translation_arr[1] = degree.value;  
   transformObject()
 } 
-function translateY(degree){
-  translation_arr[1] = degree.value;
-  selectedObject.translation_arr[1] = translation_arr[1] //savestate 
+function translateZ(degree){ 
+  selectedObject.translation_arr[2] = degree.value;  
   transformObject()
 } 
-function translateZ(degree){
-  translation_arr[2] = degree.value;
-  selectedObject.translation_arr[2] = translation_arr[2] //savestate 
+function scaleX(degree){ 
+  selectedObject.scalation[0] = degree.value;  
   transformObject()
 } 
-function scaleX(degree){
-  scalation[0] = degree.value;
-  selectedObject.scalation[0] = scalation[0] //savestate 
+function scaleY(degree){ 
+  selectedObject.scalation[1] = degree.value;  
   transformObject()
 } 
-function scaleY(degree){
-  scalation[1] = degree.value;
-  selectedObject.scalation[1] = scalation[1] //savestate 
-  transformObject()
-} 
-function scaleZ(degree){
-  scalation[2] = degree.value;
-  selectedObject.scalation[2] = scalation[2] //savestate 
+function scaleZ(degree){ 
+  selectedObject.scalation[2] = degree.value;  
   transformObject()
 } 
 
-// for tree //todo: make the other functons (me too lazy)
+//Transformation for individual sliders for tree //todo: update slider values (me too lazy)
 function rotateXSTree(degree){
-  rotationSTree[0] = (degree.value * Math.PI) / 180;
+  selectedObject.rotationSTree[0] = (degree.value * Math.PI) / 180;
+  transformObjectSubTree()
+} 
+function rotateYSTree(degree){
+  selectedObject.rotationSTree[1] = (degree.value * Math.PI) / 180;
+  transformObjectSubTree()
+} 
+function rotateZSTree(degree){
+  selectedObject.rotationSTree[2] = (degree.value * Math.PI) / 180;
+  transformObjectSubTree()
+} 
+function translateXSTree(degree){
+  selectedObject.translationSTree[0] = degree.value;
+  transformObjectSubTree()
+} 
+function translateYSTree(degree){
+  selectedObject.translationSTree[1] = degree.value;
+  transformObjectSubTree()
+} 
+function translateZSTree(degree){
+  selectedObject.translationSTree[2] = degree.value;
+  transformObjectSubTree()
+} 
+function scaleXSTree(degree){
+  selectedObject.scalationSTree[0] = degree.value;
   transformSubTree()
 } 
-// function rotateY(degree){
-//   rotation[1] = (degree.value * Math.PI) / 180;
-//   transformObject()
-// } 
-// function rotateZ(degree){
-//   rotation[2] = (degree.value * Math.PI) / 180;
-//   transformObject()
-// } 
-// function translateX(degree){
-//   translation_arr[0] = degree.value;
-//   transformObject()
-// } 
-// function translateY(degree){
-//   translation_arr[1] = degree.value;
-//   transformObject()
-// } 
-// function translateZ(degree){
-//   translation_arr[2] = degree.value;
-//   transformObject()
-// } 
-// function scaleX(degree){
-//   scalation[0] = degree.value;
-//   transformObject()
-// } 
-// function scaleY(degree){
-//   scalation[1] = degree.value;
-//   transformObject()
-// } 
-// function scaleZ(degree){
-//   scalation[2] = degree.value;
-//   transformObject()
-// } 
+function scaleYSTree(degree){
+  selectedObject.scalationSTree[1] = degree.value;
+  transformSubTree()
+} 
+function scaleZSTree(degree){
+  selectedObject.scalationSTree[2] = degree.value;
+  transformSubTree()
+} 

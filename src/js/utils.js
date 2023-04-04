@@ -265,7 +265,7 @@ function multiply(a, b) {
   ];
 }
 
-//|-----------------TRANSFORMATION START-----------------------|
+//|-----------------BASIC TRANSFORMATION START-----------------------|
 function xRotation(radian) {
   var c = Math.cos(radian);
   var s = Math.sin(radian);
@@ -315,7 +315,11 @@ function zRotate(matrix, angle){
 function scale(matrix, tx, ty, tz) {
   return multiply(matrix, scaling(tx, ty, tz));
 }
-//|-----------------TRANSFORMATION END-----------------------|
+//|-----------------BASIC TRANSFORMATION END-----------------------|
+//|-----------------ADVANCED TRANSFORMATION START-----------------------|
+function rotateOnPoint(){}
+function scaleOnPoint(){}//might not be necessary
+//|-----------------ADVANCED TRANSFORMATION END-----------------------|
 function inverse(m) {
   var m00 = m[0 * 4 + 0];
   var m01 = m[0 * 4 + 1];
