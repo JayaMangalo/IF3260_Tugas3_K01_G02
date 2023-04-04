@@ -36,7 +36,7 @@ class Object {
 
   transformSubTree(matrix) {
     this.childTransformationMatrix = matrix
-    let temp = multiply(this.childTransformationMatrix,this.parentTransformationMatrix);
+    let temp = multiply(this.parentTransformationMatrix,this.childTransformationMatrix);
 
     this.children.forEach(function (child) {
       child.parentTransformationMatrix = temp
@@ -45,20 +45,17 @@ class Object {
   }
   getCenter(){
     var vec4_center = this.center;
-    vec4_center[3] = 0;
+    vec4_center[3] = 1;
     
+    return vec4_center
     
-    let temp = multiply(this.selfTransformationMatrix,this.parentTransformationMatrix); 
-    let finalTransformationMatrix = multiply(this.childTransformationMatrix,temp); 
-
-    return multiplyMatrix4AndVec4(finalTransformationMatrix,vec4_center);
   }
   draw(isUsingShader=false) {
     if (this.batang == null) {
       return;
     }
-    let temp = multiply(this.selfTransformationMatrix,this.parentTransformationMatrix); 
-    let finalTransformationMatrix = multiply(this.childTransformationMatrix,temp); 
+    let temp = multiply(this.selfTransformationMatrix,this.childTransformationMatrix); 
+    let finalTransformationMatrix = multiply(this.parentTransformationMatrix,temp); 
 
     // gl.Texture //dosomething
 

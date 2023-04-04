@@ -273,7 +273,7 @@ function multiplyMatrix4AndVec4(matrix, vec4) {
 
   for (let i = 0; i < 4; i++) {
     for (let j = 0; j < 4; j++) {
-      result[i] += matrix[i * 4 + j] * vec4[j];
+      result[i] += matrix[j * 4 + i] * vec4[j];
     }
   }
 
@@ -333,7 +333,13 @@ function scale(matrix, tx, ty, tz) {
 //|-----------------BASIC TRANSFORMATION END-----------------------|
 //|-----------------ADVANCED TRANSFORMATION START-----------------------|
 function rotateOnPoint(){}
-function scaleOnPoint(){}//might not be necessary
+function scaleOnPoint(sx,sy,sz,center){
+  var translateToOrigin = translation(-center[0],-center[1],-center[2]);
+  var scalingMatrix = scaling(sx,sy,sz);
+  var translateBack = translation(center[0],center[1],center[2]);
+
+  return multiply(translateBack,multiply(scalingMatrix,translateToOrigin));
+}
 //|-----------------ADVANCED TRANSFORMATION END-----------------------|
 function inverse(m) {
   var m00 = m[0 * 4 + 0];
