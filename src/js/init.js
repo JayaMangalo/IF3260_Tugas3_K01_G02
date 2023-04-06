@@ -176,7 +176,7 @@ function init() {
   // Asynchronously load an image
   var image = new Image();
   image.setAttribute('crossorigin', 'anonymous');
-  image.src = "https://webglfundamentals.org/webgl/resources/f-texture.png"
+  image.src = "https://garden.spoonflower.com/c/13505557/p/f/m/vq9Ccpp9NCUY9uNy5qlyuuGp4fylFT_NGqr7M9Wzm6dhTaXvMQQWwLx9Og/Dragon%20Red%20Fantasy%20Scale%20Dragonscale%20Cosplay%20Fire.jpg"
   image.addEventListener('load', function() {
   // Now that the image has loaded make copy it to the texture.
   gl.bindTexture(gl.TEXTURE_2D, texture);

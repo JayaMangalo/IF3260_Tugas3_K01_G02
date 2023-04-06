@@ -79,7 +79,7 @@ class Object {
           );
         }
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
-        gl.drawArrays(gl.TRIANGLES, 0, this.batang.length);
+        gl.drawArrays(gl.TRIANGLES, 0, batang.length);
       }
     } else {
       for (let batang of this.batang) {
@@ -98,7 +98,7 @@ class Object {
           
         }
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
-        gl.drawArrays(gl.TRIANGLES, 0, this.batang.length);
+        gl.drawArrays(gl.TRIANGLES, 0, batang.length);
       }
     }
     this.children.forEach(function (child) {
