@@ -14,11 +14,10 @@ function transformObject(){
   var matrix = []
   convertToIdentityMatrix(matrix)
   matrix = translate(matrix, selectedObject.translation_arr[0], selectedObject.translation_arr[1], selectedObject.translation_arr[2]);
-  matrix = xRotate(matrix, selectedObject.rotation[0]); 
-  matrix = yRotate(matrix, selectedObject.rotation[1]);
-  matrix = zRotate(matrix, selectedObject.rotation[2]);
-  // matrix = scale(matrix, selectedObject.scalation[0]/10, selectedObject.scalation[1]/10, selectedObject.scalation[2]/10);
-  matrix = multiply(matrix, scaleOnPoint(selectedObject.scalation[0]/10, selectedObject.scalation[1]/10, selectedObject.scalation[2]/10,centerpoint));
+  matrix = multiply (matrix, xRotateonPoint(selectedObject.rotation[0],centerpoint)); 
+  matrix = multiply (matrix, yRotateonPoint(selectedObject.rotation[1],centerpoint));
+  matrix = multiply (matrix, zRotateonPoint(selectedObject.rotation[2],centerpoint));
+  matrix = multiply (matrix, scaleOnPoint(selectedObject.scalation[0]/10, selectedObject.scalation[1]/10, selectedObject.scalation[2]/10,centerpoint));
 
   // selectedObject.transformSelf(matrix);
   selectedObject.transformSubTree(matrix); //activated for testing, revert when done
@@ -33,9 +32,9 @@ function transformObjectSubTree(){
   var matrix = [];
   convertToIdentityMatrix(matrix)
   matrix = translate(matrix, selectedObject.translationSTree[0], selectedObject.translationSTree[1], selectedObject.translationSTree[2]);
-  matrix = xRotate(matrix, selectedObject.rotationSTree[0]);
-  matrix = yRotate(matrix, selectedObject.rotationSTree[1]);
-  matrix = zRotate(matrix, selectedObject.rotationSTree[2]);
+  matrix = multiply (matrix, xRotateonPoint(selectedObject.rotation[0],centerpoint)); 
+  matrix = multiply (matrix, yRotateonPoint(selectedObject.rotation[1],centerpoint));
+  matrix = multiply (matrix, zRotateonPoint(selectedObject.rotation[2],centerpoint));
   matrix = multiply(matrix, scaleOnPoint(selectedObject.scalationSTree[0]/10, selectedObject.scalationSTree[1]/10, selectedObject.scalationSTree[2]/10,centerpoint));
 
   selectedObject.transformSubTree(matrix);
@@ -43,7 +42,7 @@ function transformObjectSubTree(){
 
 }
 
-//Transformation for individual sliders for OBJECT //todo: update slider values (me too lazy)
+//Transformation for individual sliders for OBJECT 
 function rotateX(degree){ 
   document.getElementById("x-angle").innerText = degree.value
   selectedObject.rotation[0] = (degree.value  * Math.PI) / 180; 

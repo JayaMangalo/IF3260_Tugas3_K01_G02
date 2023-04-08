@@ -153,7 +153,5 @@ onLoad();
 
 // MINOR STUFF/bugs
 // a way to rotate objects during init (an easy way is to set a hidden rotation matrix during init time, main issue is which order should the matrices be calculated)
-// rotate and scale with center of object as origin point (ask chatgpt/stackoverflow for how to, there is the math for this)
-// if u rotate 2 different heads, they wont stick exactly to the body (this is maybe because of the order matrices are calculated or because they arent rotated on their center (probably this))
 
 //other stuff i may have missed

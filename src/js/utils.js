@@ -332,7 +332,29 @@ function scale(matrix, tx, ty, tz) {
 }
 //|-----------------BASIC TRANSFORMATION END-----------------------|
 //|-----------------ADVANCED TRANSFORMATION START-----------------------|
-function rotateOnPoint(){}
+function xRotateonPoint(angle, center){
+  var translateToOrigin = translation(-center[0],-center[1],-center[2]);
+  var rotMatrix = xRotation(angle);
+  var translateBack = translation(center[0],center[1],center[2]);
+
+  return multiply(translateBack,multiply(rotMatrix,translateToOrigin));
+}
+function yRotateonPoint(angle, center){
+  var translateToOrigin = translation(-center[0],-center[1],-center[2]);
+  var rotMatrix = yRotation(angle);
+  var translateBack = translation(center[0],center[1],center[2]);
+
+  return multiply(translateBack,multiply(rotMatrix,translateToOrigin));
+}
+
+function zRotateonPoint(angle, center){
+  var translateToOrigin = translation(-center[0],-center[1],-center[2]);
+  var rotMatrix = zRotation(angle);
+  var translateBack = translation(center[0],center[1],center[2]);
+
+  return multiply(translateBack,multiply(rotMatrix,translateToOrigin));
+}
+
 function scaleOnPoint(sx,sy,sz,center){
   var translateToOrigin = translation(-center[0],-center[1],-center[2]);
   var scalingMatrix = scaling(sx,sy,sz);
