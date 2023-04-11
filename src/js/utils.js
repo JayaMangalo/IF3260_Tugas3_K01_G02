@@ -579,3 +579,36 @@ function calcNormalVector(v1, v2, v3) {
   let v3_minus_v1 = [v3[0] - v1[0], v3[1] - v1[1], v3[2] - v1[2]];
   return normalize(crossProduct(v2_minus_v1, v3_minus_v1));
 }
+
+function transpose(matrix) {
+  return [
+    matrix[0], matrix[4], matrix[8], matrix[12],
+    matrix[1], matrix[5], matrix[9], matrix[13],
+    matrix[2], matrix[6], matrix[10], matrix[14],
+    matrix[3], matrix[7], matrix[11], matrix[15]
+  ]
+
+}
+
+
+function calculateTangetSpace(p1,p2,p3){
+  // p1 -> _______ <- p2
+  //      |      /
+  //      |     /
+  //      |    /
+  //      |   /     clockwise: p2 -> p1 -> p3
+  //      |  /
+  //      | /
+  //      |/
+  // p3 --^
+
+  let v1 = [p2[0]-p1[0],p2[1]-p1[1],p2[2]-p1[2]]
+  let v2 = [p3[0]-p1[0],p3[1]-p1[1],p3[2]-p1[2]]
+
+  let normal = normalize(crossProduct(v1,v2))
+  let tangent = normalize(v1)
+  let bitangent = normalize(v2)
+
+  let result = normal.concat(tangent).concat(bitangent)
+  return result
+}

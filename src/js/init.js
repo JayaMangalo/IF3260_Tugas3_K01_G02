@@ -9,12 +9,16 @@ var indexBuffer = gl.createBuffer();
 var positionAttribLocation;
 var textureAttribLocation;
 var normalAttribLocation;
+var tangentAttribLocation;
+var bitangentAttribLocation;
 var shadderSource;
 
 var light_source = [1, 1, 0];
 var matWorldLocation;
 var matViewLocation;
 var matProjLocation;
+var matNormalLocation;
+var matViewModelLocation;
 var worldMatrix;
 var viewMatrix;
 var projMatrix;
@@ -43,19 +47,36 @@ function init() {
         in vec3 vertPosition;
         in vec2 a_texcoord;
         in vec3 a_normal;
+        in vec3 a_tangent;
+        in vec3 a_bitangent;
         
         out vec4 fragColor;
         out vec3 v_normal;
         out vec2 v_texcoord;
 
-        uniform mat4 mWorld;
+        out vec3 ts_light_pos;
+        out vec3 ts_view_pos;
+        out vec3 ts_frag_pos;
+
+        uniform mat4 mModel;
         uniform mat4 mView;
         uniform mat4 mProj;
+        uniform mat4 mViewModel;
+        uniform mat4 mNormal;
     
         void main() {
-            gl_Position = mProj * mView * mWorld * vec4(vertPosition, 1);
+            gl_Position = mProj * mView * mModel * vec4(vertPosition, 1);
             v_normal = a_normal;
             v_texcoord = a_texcoord;
+            
+            vec3 T = normalize((mNormal * vec4(a_tangent, 0)).xyz);
+            vec3 B = normalize((mNormal * vec4(a_bitangent, 0)).xyz);
+            vec3 N = normalize((mNormal * vec4(a_normal, 0)).xyz);
+            mat3 TBN = mat3(T, B, N);
+
+            ts_light_pos = TBN * vec3(1,2,0);
+            ts_view_pos = TBN * vec3(0,0,0);
+            ts_frag_pos = TBN * vec3(mViewModel * vec4(vertPosition, 1));
         }`,
 
     fragmentShaderSource: `#version 300 es
@@ -63,17 +84,34 @@ function init() {
         in vec3 v_normal;
         in vec2 v_texcoord;
         out vec4 outColor;
+
+        in vec3 ts_light_pos;
+        in vec3 ts_view_pos;
+        in vec3 ts_frag_pos;
         
         uniform sampler2D u_texture;
 
         void main() {
-          vec3 normal = normalize(v_normal);
-          float light = dot(normal, normalize(vec3(1,1,0)));
+          if(false) {
+            //jika texture mapping
+            vec3 normal = normalize(v_normal);
+            float light = dot(normal, normalize(vec3(1,1,0)));
 
-          outColor = texture(u_texture, v_texcoord);
-          // outColor = vec4(1,0,0,1);
+            outColor = texture(u_texture, v_texcoord);
+            // outColor  = vec4(1,0,0,1);
 
-          outColor.rgb *= light;
+            outColor.rgb *= light;
+          }
+          else {
+            //jika bump mapping
+            vec3 light_dir = normalize(ts_light_pos - ts_frag_pos);
+            vec3 view_dir = normalize(ts_view_pos - ts_frag_pos);
+            vec3 albedo = texture(u_texture, v_texcoord).rgb;
+            vec3 ambient = 0.3 * albedo;
+            vec3 norm = normalize(texture(u_texture, v_texcoord).rgb * 2.0 - 1.0);
+            float diffuse = max(dot(light_dir, norm), 0.0);
+            outColor = vec4(diffuse * albedo + ambient, 1.0);
+          }
         }`,
   };
   //Create Shadder
@@ -110,14 +148,13 @@ function init() {
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
 
   // Create Position Attribute
-
   positionAttribLocation = gl.getAttribLocation(program, "vertPosition");
   gl.vertexAttribPointer(
     positionAttribLocation,
     3, //3 float per vertex (XYZ)
     gl.FLOAT,
     gl.FALSE,
-    8 * Float32Array.BYTES_PER_ELEMENT, //1 vertex = 7 float (XYZRGBA)
+    14 * Float32Array.BYTES_PER_ELEMENT, //1 vertex = 14 float (XYZ RGBA XYZ XYZ XYZ)
     0 //Position start from the first element
   );
 
@@ -128,7 +165,7 @@ function init() {
     2, //4 float per vertex (RGBA)
     gl.FLOAT,
     gl.FALSE,
-    8 * Float32Array.BYTES_PER_ELEMENT, //1 vertex = 7 float (XYZRGBA)
+    14 * Float32Array.BYTES_PER_ELEMENT, //1 vertex = 14 float (XYZ RGBA XYZ XYZ XYZ)
     3 * Float32Array.BYTES_PER_ELEMENT //Color start from the fourth element
   );
 
@@ -139,14 +176,38 @@ function init() {
     3, //3 float per vertex (XYZ)
     gl.FLOAT,
     gl.FALSE,
-    8 * Float32Array.BYTES_PER_ELEMENT, //1 vertex = 7 float (XYZRGBAXYZ)
+    14 * Float32Array.BYTES_PER_ELEMENT, //1 vertex = 14 float (XYZ RGBA XYZ XYZ XYZ)
     5 * Float32Array.BYTES_PER_ELEMENT //Color start from the seventh element
+  );
+
+  //Create Tangent Attribute
+  tangentAttribLocation = gl.getAttribLocation(program, "a_tangent");
+  gl.vertexAttribPointer(
+    tangentAttribLocation,
+    3, //3 float per vertex (XYZ)
+    gl.FLOAT,
+    gl.FALSE,
+    14 * Float32Array.BYTES_PER_ELEMENT, //1 vertex = 14 float (XYZ RGBA XYZ XYZ XYZ)
+    8 * Float32Array.BYTES_PER_ELEMENT //Color start from the seventh element
+  );
+
+  //Create Bitangent Attribute
+  bitangentAttribLocation = gl.getAttribLocation(program, "a_bitangent");
+  gl.vertexAttribPointer(
+    bitangentAttribLocation,
+    3, //3 float per vertex (XYZ)
+    gl.FLOAT,
+    gl.FALSE,
+    14 * Float32Array.BYTES_PER_ELEMENT, //1 vertex = 14 float (XYZ RGBA XYZ XYZ XYZ)
+    11 * Float32Array.BYTES_PER_ELEMENT //Color start from the seventh element
   );
 
   //Enable the attribute
   gl.enableVertexAttribArray(positionAttribLocation);
   gl.enableVertexAttribArray(textureAttribLocation);
   gl.enableVertexAttribArray(normalAttribLocation);
+  gl.enableVertexAttribArray(tangentAttribLocation);
+  gl.enableVertexAttribArray(bitangentAttribLocation);
 
   //Enable transparency
   gl.enable(gl.BLEND);
@@ -158,9 +219,11 @@ function init() {
   //Start the program
   gl.useProgram(program);
   // lightSourceLocation = gl.getUniformLocation(program, "a_lightsource");
-  matWorldLocation = gl.getUniformLocation(program, "mWorld");
+  matWorldLocation = gl.getUniformLocation(program, "mModel");
   matViewLocation = gl.getUniformLocation(program, "mView");
   matProjLocation = gl.getUniformLocation(program, "mProj");
+  matViewModelLocation = gl.getUniformLocation(program, "mViewModel");
+  matNormalLocation = gl.getUniformLocation(program, "mNormal");
   textureLocation = gl.getUniformLocation(program, "u_texture");
 
   // lightSourceVector = new Float32Array(light_source)
@@ -174,9 +237,9 @@ function init() {
     new Uint8Array([0, 0, 255, 255]));
 
   // Asynchronously load an image
-  var image = new Image();
-  image.setAttribute('crossorigin', 'anonymous');
-  image.src = "https://garden.spoonflower.com/c/13505557/p/f/m/vq9Ccpp9NCUY9uNy5qlyuuGp4fylFT_NGqr7M9Wzm6dhTaXvMQQWwLx9Og/Dragon%20Red%20Fantasy%20Scale%20Dragonscale%20Cosplay%20Fire.jpg"
+  const image = new Image();
+  image.crossOrigin = "anonymous";
+  image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJXQN6V7u4x-cd60-DipJvU2F4tKxTLGY0RZH9TH-CHyX_uFQxn8Efy3xuPYlLWamvpMo&usqp=CAU";
   image.addEventListener('load', function() {
   // Now that the image has loaded make copy it to the texture.
   gl.bindTexture(gl.TEXTURE_2D, texture);
@@ -233,8 +296,11 @@ function view() {
 
   viewMatrix = inverse(cameraMatrix);
 
+
   gl.uniformMatrix4fv(matWorldLocation, gl.FALSE, worldMatrix);
   gl.uniformMatrix4fv(matViewLocation, gl.FALSE, viewMatrix);
   gl.uniformMatrix4fv(matProjLocation, gl.FALSE, projMatrix);
+  gl.uniformMatrix4fv(matViewModelLocation, gl.FALSE, multiply(viewMatrix, worldMatrix));
+  gl.uniformMatrix4fv(matNormalLocation, gl.FALSE, transpose(inverse(multiply(viewMatrix, worldMatrix))));
   gl.uniform1i(textureLocation, 0);
 }

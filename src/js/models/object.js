@@ -75,7 +75,13 @@ class Object {
             batang[i][4], //texturemapY
             batang[i][5], //NormalX
             batang[i][6], //NormalY
-            batang[i][7] //NormalZ
+            batang[i][7], //NormalZ
+            batang[i][8], //tangetX
+            batang[i][9], //tangetY
+            batang[i][10], //tangetZ
+            batang[i][11], //bitangetX
+            batang[i][12], //bitangetY
+            batang[i][13] //bitangetZ
           );
         }
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
@@ -93,7 +99,13 @@ class Object {
             batang[i][4], //texturemapY
             1, //NormalX
             1, //NormalY
-            0 //NormalZ
+            0, //NormalZ
+            1, //tangetX
+            0, //tangetY
+            0, //tangetZ
+            1, //bitangetX
+            0, //bitangetY
+            0 //bitangetZ
           );
           
         }

@@ -13,12 +13,13 @@ function onLoad() {
   //Initialize the WebGL
   init();
   loadEXPERIMENT();
+  // loadTank();
 
   traverseTree(shapes)
   redraw()
 
-  document.getElementById("camera-angle-x").value = -30 //for testing purposes, remove later
-  document.getElementById("camera-angle-y").value = -40
+  document.getElementById("camera-angle-x").value = 0 //for testing purposes, remove later
+  document.getElementById("camera-angle-y").value = 90
   changeAngleX()
   changeAngleY()
 }

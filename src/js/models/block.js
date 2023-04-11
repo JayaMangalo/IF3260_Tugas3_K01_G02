@@ -17,15 +17,16 @@ class Block extends Object{
     }
     toTriangle(p1,p2,p3,p4){
         return [
-          p1.concat([1,1]), //still in progress, will change later on
-          p2.concat([0,1]), 
-          p3.concat([0,0]),
+          p1.concat([1,1]).concat(calculateTangetSpace(p1,p2,p3)), //still in progress, will change later on
+          p2.concat([0,1]).concat(calculateTangetSpace(p2,p3,p4)), 
+          p3.concat([0,0]).concat(calculateTangetSpace(p3,p1,p2)),
 
-          p1.concat([1,1]),
-          p3.concat([0,0]),
-          p4.concat([1,0])
+          p1.concat([1,1]).concat(calculateTangetSpace(p1,p3,p4)),
+          p3.concat([0,0]).concat(calculateTangetSpace(p3,p4,p1)),
+          p4.concat([1,0]).concat(calculateTangetSpace(p4,p1,p2)),
         ]
     }
+
     createVertices(l,h,w){
       let x = this.origin[0]
       let y = this.origin[1]
