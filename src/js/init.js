@@ -29,6 +29,10 @@ var cameraRadius;
 var fieldOfView;
 var projectionMode;
 
+//Texture
+var images = [];
+var textures = [];
+
 //Initialize the WebGL
 function init() {
   //Check if webgl is supported
@@ -58,6 +62,9 @@ function init() {
         out vec3 ts_view_pos;
         out vec3 ts_frag_pos;
 
+        out vec3 vWorldPosition;
+        out vec3 vWorldNormal;
+
         uniform mat4 mModel;
         uniform mat4 mView;
         uniform mat4 mProj;
@@ -72,11 +79,15 @@ function init() {
             vec3 T = normalize((mNormal * vec4(a_tangent, 0)).xyz);
             vec3 B = normalize((mNormal * vec4(a_bitangent, 0)).xyz);
             vec3 N = normalize((mNormal * vec4(a_normal, 0)).xyz);
-            mat3 TBN = mat3(T, B, N);
+            mat3 TBN = transpose(mat3(T, B, N));
+            // mat3 TBN = mat3(T, B, N);
 
             ts_light_pos = TBN * vec3(1,2,0);
             ts_view_pos = TBN * vec3(0,0,0);
             ts_frag_pos = TBN * vec3(mViewModel * vec4(vertPosition, 1));
+
+            vWorldPosition = (mViewModel * vec4(vertPosition, 1)).xyz;
+            vWorldNormal = (mNormal * vec4(a_normal, 0)).xyz;
         }`,
 
     fragmentShaderSource: `#version 300 es
@@ -88,8 +99,13 @@ function init() {
         in vec3 ts_light_pos;
         in vec3 ts_view_pos;
         in vec3 ts_frag_pos;
+
+        in vec3 vWorldPosition;
+        in vec3 vWorldNormal;
         
+        uniform vec3 uWorldCameraPosition;
         uniform sampler2D u_texture;
+        uniform sampler2D u_texture_bump;
 
         void main() {
           if(false) {
@@ -101,14 +117,22 @@ function init() {
             // outColor  = vec4(1,0,0,1);
 
             outColor.rgb *= light;
+          } else if(false){
+            //jika environment mapping
+            //Belum jalan
+            vec3 worldNormal = normalize(vWorldNormal);
+            vec3 eyeToSurfaceDir = normalize(vWorldPosition - uWorldCameraPosition);
+            vec3 direction = reflect(eyeToSurfaceDir, worldNormal);
+
+            // outColor = textureCube(u_texture_environment, direction);
           }
           else {
             //jika bump mapping
             vec3 light_dir = normalize(ts_light_pos - ts_frag_pos);
             vec3 view_dir = normalize(ts_view_pos - ts_frag_pos);
-            vec3 albedo = texture(u_texture, v_texcoord).rgb;
+            vec3 albedo = texture(u_texture_bump, v_texcoord).rgb;
             vec3 ambient = 0.3 * albedo;
-            vec3 norm = normalize(texture(u_texture, v_texcoord).rgb * 2.0 - 1.0);
+            vec3 norm = normalize(texture(u_texture_bump, v_texcoord).rgb * 2.0 - 1.0);
             float diffuse = max(dot(light_dir, norm), 0.0);
             outColor = vec4(diffuse * albedo + ambient, 1.0);
           }
@@ -225,27 +249,58 @@ function init() {
   matViewModelLocation = gl.getUniformLocation(program, "mViewModel");
   matNormalLocation = gl.getUniformLocation(program, "mNormal");
   textureLocation = gl.getUniformLocation(program, "u_texture");
+  textureLocationBump = gl.getUniformLocation(program, "u_texture_bump");
+  cameraPosisionLocation = gl.getUniformLocation(program, "uWorldCameraPosition");
 
   // lightSourceVector = new Float32Array(light_source)
   worldMatrix = new Float32Array(16);
   viewMatrix = new Float32Array(16);
   projMatrix = new Float32Array(16);
   convertToIdentityMatrix(worldMatrix);
-  var texture = gl.createTexture();
-  gl.bindTexture(gl.TEXTURE_2D, texture);
-  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE,
-    new Uint8Array([0, 0, 255, 255]));
 
-  // Asynchronously load an image
-  const image = new Image();
+
+//Load Texture
+function loadImages(urls, callback) {
+  var imagesToLoad = urls.length;
+
+  // Called each time an image finished
+  // loading.
+  var onImageLoad = function() {
+    --imagesToLoad;
+    // If all the images are loaded call the callback.
+    if (imagesToLoad === 0) {
+      callback(images);
+    }
+  };
+
+  for (var ii = 0; ii < imagesToLoad; ++ii) {
+    var image = loadImage(urls[ii], onImageLoad);
+    images.push(image);
+  }
+}
+
+function loadImage(url, callback) {
+  var image = new Image();
+  image.src = url;
   image.crossOrigin = "anonymous";
-  image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJXQN6V7u4x-cd60-DipJvU2F4tKxTLGY0RZH9TH-CHyX_uFQxn8Efy3xuPYlLWamvpMo&usqp=CAU";
-  image.addEventListener('load', function() {
-  // Now that the image has loaded make copy it to the texture.
-  gl.bindTexture(gl.TEXTURE_2D, texture);
-  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,gl.UNSIGNED_BYTE, image);
-  gl.generateMipmap(gl.TEXTURE_2D);
-  });
+  image.onload = callback;
+  return image;
+}
+
+function renderTexture() {
+  for (var i = 0; i < images.length; i++) {
+    var texture = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, texture);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,gl.UNSIGNED_BYTE, images[i]);
+    gl.generateMipmap(gl.TEXTURE_2D);
+    textures.push(texture);
+  }
+}
+
+loadImages([
+  "https://kkfabrics.com.au/wp-content/uploads/2022/04/I-Dragon-Scales-Red.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJXQN6V7u4x-cd60-DipJvU2F4tKxTLGY0RZH9TH-CHyX_uFQxn8Efy3xuPYlLWamvpMo&usqp=CAU"],
+  renderTexture);
 
   cameraAngleX = toRadian(0);
   cameraAngleY = toRadian(0);
@@ -302,5 +357,13 @@ function view() {
   gl.uniformMatrix4fv(matProjLocation, gl.FALSE, projMatrix);
   gl.uniformMatrix4fv(matViewModelLocation, gl.FALSE, multiply(viewMatrix, worldMatrix));
   gl.uniformMatrix4fv(matNormalLocation, gl.FALSE, transpose(inverse(multiply(viewMatrix, worldMatrix))));
+  gl.uniform3fv(cameraPosisionLocation, [cameraMatrix[12], cameraMatrix[13], cameraMatrix[14]]);
   gl.uniform1i(textureLocation, 0);
+  gl.uniform1i(textureLocationBump, 1);
+
+  //Bind the texture
+  gl.activeTexture(gl.TEXTURE0 + 0);
+  gl.bindTexture(gl.TEXTURE_2D, textures[0]);
+  gl.activeTexture(gl.TEXTURE1);
+  gl.bindTexture(gl.TEXTURE_2D, textures[1]);
 }
