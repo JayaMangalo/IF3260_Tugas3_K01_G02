@@ -12,8 +12,13 @@ var btn_id = 0;
 function onLoad() {
   //Initialize the WebGL
   init();
-  loadEXPERIMENT();
+
+  //Real Model
+  // loadEXPERIMENT();
   // loadTank();
+
+  //Model For Texting Texture
+  loadCube();
 
   traverseTree(shapes)
   redraw()

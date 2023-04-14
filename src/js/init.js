@@ -106,6 +106,7 @@ function init() {
         uniform vec3 uWorldCameraPosition;
         uniform sampler2D u_texture;
         uniform sampler2D u_texture_bump;
+        uniform samplerCube u_texture_environment;
 
         void main() {
           if(false) {
@@ -117,14 +118,13 @@ function init() {
             // outColor  = vec4(1,0,0,1);
 
             outColor.rgb *= light;
-          } else if(false){
+          } else if(true){
             //jika environment mapping
-            //Belum jalan
             vec3 worldNormal = normalize(vWorldNormal);
             vec3 eyeToSurfaceDir = normalize(vWorldPosition - uWorldCameraPosition);
-            vec3 direction = reflect(eyeToSurfaceDir, worldNormal);
+            vec3 direction = normalize(reflect(eyeToSurfaceDir, worldNormal));
 
-            // outColor = textureCube(u_texture_environment, direction);
+            outColor = vec4(texture(u_texture_environment, direction));
           }
           else {
             //jika bump mapping
@@ -250,6 +250,10 @@ function init() {
   matNormalLocation = gl.getUniformLocation(program, "mNormal");
   textureLocation = gl.getUniformLocation(program, "u_texture");
   textureLocationBump = gl.getUniformLocation(program, "u_texture_bump");
+  textureLocationEnvironment = gl.getUniformLocation(
+    program,
+    "u_texture_environment"
+  );
   cameraPosisionLocation = gl.getUniformLocation(
     program,
     "uWorldCameraPosition"
@@ -290,33 +294,58 @@ function init() {
   }
 
   function renderTexture() {
-    for (var i = 0; i < images.length; i++) {
-      var texture = gl.createTexture();
-      gl.bindTexture(gl.TEXTURE_2D, texture);
-      gl.texImage2D(
-        gl.TEXTURE_2D,
-        0,
-        gl.RGBA,
-        gl.RGBA,
-        gl.UNSIGNED_BYTE,
-        images[i]
-      );
-      gl.generateMipmap(gl.TEXTURE_2D);
-      textures.push(texture);
+    // for (var i = 0; i < images.length; i++) {
+    for (var i = 0; i < 3; i++) {
+      if (i < 2) {
+        //Textrue biasa dan bump texture
+        var texture = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, texture);
+        gl.texImage2D(
+          gl.TEXTURE_2D,
+          0,
+          gl.RGBA,
+          gl.RGBA,
+          gl.UNSIGNED_BYTE,
+          images[i]
+        );
+        gl.generateMipmap(gl.TEXTURE_2D);
+        textures.push(texture);
+      } else {
+        //Environment texture
+        var texture = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_CUBE_MAP, texture);
+
+        const faceInfos = [
+          { target: gl.TEXTURE_CUBE_MAP_POSITIVE_X, img: images[2] },
+          { target: gl.TEXTURE_CUBE_MAP_NEGATIVE_X, img: images[3] },
+          { target: gl.TEXTURE_CUBE_MAP_POSITIVE_Y, img: images[4] },
+          { target: gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, img: images[5] },
+          { target: gl.TEXTURE_CUBE_MAP_POSITIVE_Z, img: images[6] },
+          { target: gl.TEXTURE_CUBE_MAP_NEGATIVE_Z, img: images[7] },
+        ];
+
+        faceInfos.forEach((faceInfo) => {
+          const { target, img } = faceInfo;
+          gl.bindTexture(gl.TEXTURE_CUBE_MAP, texture);
+          gl.texImage2D(target, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
+        });
+        gl.generateMipmap(gl.TEXTURE_CUBE_MAP);
+        textures.push(texture);
+      }
     }
   }
 
-  //Load image from texture, bumptexture, neg-x, neg-y, neg-z, pos-x, pos-y, pos-z
+  //Load image from texture, bumptexture, pox-x, neg-x, pos-y, neg-y, pos-z, neg-z
   loadImages(
     [
       "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/dragonscale.jpg",
       "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/bump.png",
-      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/neg-x.jpg",
-      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/neg-y.jpg",
-      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/neg-z.jpg",
       "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/pos-x.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/neg-x.jpg",
       "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/pos-y.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/neg-y.jpg",
       "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/pos-z.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/neg-z.jpg",
     ],
     renderTexture
   );
@@ -369,7 +398,6 @@ function view() {
   }
 
   viewMatrix = inverse(cameraMatrix);
-
   gl.uniformMatrix4fv(matWorldLocation, gl.FALSE, worldMatrix);
   gl.uniformMatrix4fv(matViewLocation, gl.FALSE, viewMatrix);
   gl.uniformMatrix4fv(matProjLocation, gl.FALSE, projMatrix);
@@ -390,10 +418,13 @@ function view() {
   ]);
   gl.uniform1i(textureLocation, 0);
   gl.uniform1i(textureLocationBump, 1);
+  gl.uniform1i(textureLocationEnvironment, 2);
 
   //Bind the texture
   gl.activeTexture(gl.TEXTURE0 + 0);
   gl.bindTexture(gl.TEXTURE_2D, textures[0]);
   gl.activeTexture(gl.TEXTURE1);
   gl.bindTexture(gl.TEXTURE_2D, textures[1]);
+  gl.activeTexture(gl.TEXTURE2);
+  gl.bindTexture(gl.TEXTURE_CUBE_MAP, textures[2]);
 }
