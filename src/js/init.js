@@ -250,7 +250,10 @@ function init() {
   matNormalLocation = gl.getUniformLocation(program, "mNormal");
   textureLocation = gl.getUniformLocation(program, "u_texture");
   textureLocationBump = gl.getUniformLocation(program, "u_texture_bump");
-  cameraPosisionLocation = gl.getUniformLocation(program, "uWorldCameraPosition");
+  cameraPosisionLocation = gl.getUniformLocation(
+    program,
+    "uWorldCameraPosition"
+  );
 
   // lightSourceVector = new Float32Array(light_source)
   worldMatrix = new Float32Array(16);
@@ -258,49 +261,65 @@ function init() {
   projMatrix = new Float32Array(16);
   convertToIdentityMatrix(worldMatrix);
 
+  //Load Texture
+  function loadImages(urls, callback) {
+    var imagesToLoad = urls.length;
 
-//Load Texture
-function loadImages(urls, callback) {
-  var imagesToLoad = urls.length;
+    // Called each time an image finished
+    // loading.
+    var onImageLoad = function () {
+      --imagesToLoad;
+      // If all the images are loaded call the callback.
+      if (imagesToLoad === 0) {
+        callback(images);
+      }
+    };
 
-  // Called each time an image finished
-  // loading.
-  var onImageLoad = function() {
-    --imagesToLoad;
-    // If all the images are loaded call the callback.
-    if (imagesToLoad === 0) {
-      callback(images);
+    for (var ii = 0; ii < imagesToLoad; ++ii) {
+      var image = loadImage(urls[ii], onImageLoad);
+      images.push(image);
     }
-  };
-
-  for (var ii = 0; ii < imagesToLoad; ++ii) {
-    var image = loadImage(urls[ii], onImageLoad);
-    images.push(image);
   }
-}
 
-function loadImage(url, callback) {
-  var image = new Image();
-  image.src = url;
-  image.crossOrigin = "anonymous";
-  image.onload = callback;
-  return image;
-}
-
-function renderTexture() {
-  for (var i = 0; i < images.length; i++) {
-    var texture = gl.createTexture();
-    gl.bindTexture(gl.TEXTURE_2D, texture);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,gl.UNSIGNED_BYTE, images[i]);
-    gl.generateMipmap(gl.TEXTURE_2D);
-    textures.push(texture);
+  function loadImage(url, callback) {
+    var image = new Image();
+    image.src = url;
+    image.crossOrigin = "anonymous";
+    image.onload = callback;
+    return image;
   }
-}
 
-loadImages([
-  "https://kkfabrics.com.au/wp-content/uploads/2022/04/I-Dragon-Scales-Red.jpg",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJXQN6V7u4x-cd60-DipJvU2F4tKxTLGY0RZH9TH-CHyX_uFQxn8Efy3xuPYlLWamvpMo&usqp=CAU"],
-  renderTexture);
+  function renderTexture() {
+    for (var i = 0; i < images.length; i++) {
+      var texture = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, texture);
+      gl.texImage2D(
+        gl.TEXTURE_2D,
+        0,
+        gl.RGBA,
+        gl.RGBA,
+        gl.UNSIGNED_BYTE,
+        images[i]
+      );
+      gl.generateMipmap(gl.TEXTURE_2D);
+      textures.push(texture);
+    }
+  }
+
+  //Load image from texture, bumptexture, neg-x, neg-y, neg-z, pos-x, pos-y, pos-z
+  loadImages(
+    [
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/dragonscale.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/bump.png",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/neg-x.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/neg-y.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/neg-z.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/pos-x.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/pos-y.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/pos-z.jpg",
+    ],
+    renderTexture
+  );
 
   cameraAngleX = toRadian(0);
   cameraAngleY = toRadian(0);
@@ -351,13 +370,24 @@ function view() {
 
   viewMatrix = inverse(cameraMatrix);
 
-
   gl.uniformMatrix4fv(matWorldLocation, gl.FALSE, worldMatrix);
   gl.uniformMatrix4fv(matViewLocation, gl.FALSE, viewMatrix);
   gl.uniformMatrix4fv(matProjLocation, gl.FALSE, projMatrix);
-  gl.uniformMatrix4fv(matViewModelLocation, gl.FALSE, multiply(viewMatrix, worldMatrix));
-  gl.uniformMatrix4fv(matNormalLocation, gl.FALSE, transpose(inverse(multiply(viewMatrix, worldMatrix))));
-  gl.uniform3fv(cameraPosisionLocation, [cameraMatrix[12], cameraMatrix[13], cameraMatrix[14]]);
+  gl.uniformMatrix4fv(
+    matViewModelLocation,
+    gl.FALSE,
+    multiply(viewMatrix, worldMatrix)
+  );
+  gl.uniformMatrix4fv(
+    matNormalLocation,
+    gl.FALSE,
+    transpose(inverse(multiply(viewMatrix, worldMatrix)))
+  );
+  gl.uniform3fv(cameraPosisionLocation, [
+    cameraMatrix[12],
+    cameraMatrix[13],
+    cameraMatrix[14],
+  ]);
   gl.uniform1i(textureLocation, 0);
   gl.uniform1i(textureLocationBump, 1);
 
