@@ -1,0 +1,88 @@
+{
+  "type": "model",
+  "data": [
+    {
+      "type": "block",
+      "name": "Body",
+      "origin": [-20, 0, -12.5],
+      "length": 25,
+      "height": 10,
+      "width": 20,
+      "children": [
+        {
+          "type": "block",
+          "name": "Head",
+          "origin": [4, 8, -8.5],
+          "length": 10,
+          "height": 10,
+          "width": 12,
+          "children": [
+            {
+              "type": "block",
+              "name": "Mouth",
+              "origin": [14, 8, -5.5],
+              "length": 8,
+              "height": 6,
+              "width": 8,
+              "children": []
+            },
+            {
+              "type": "block",
+              "name": "Left Ear",
+              "origin": [5, 18, -0.5],
+              "length": 2,
+              "height": 3,
+              "width": 4,
+              "children": []
+            },
+            {
+              "type": "block",
+              "name": "Right Ear",
+              "origin": [5, 18, -8.5],
+              "length": 2,
+              "height": 3,
+              "width": 4,
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "block",
+          "name": "Front Left Leg",
+          "origin": [0, -10, 3.5],
+          "length": 4,
+          "height": 12,
+          "width": 4,
+          "children": []
+        },
+        {
+          "type": "block",
+          "name": "Front Right Leg",
+          "origin": [0, -10, -12.5],
+          "length": 4,
+          "height": 12,
+          "width": 4,
+          "children": []
+        },
+        {
+          "type": "block",
+          "name": "Back Left Leg",
+          "origin": [-20, -10, 3.5],
+          "length": 4,
+          "height": 12,
+          "width": 4,
+          "children": []
+        },
+        {
+          "type": "block",
+          "name": "Back Right Leg",
+          "origin": [-20, -10, -12.5],
+          "length": 4,
+          "height": 12,
+          "width": 4,
+          "children": []
+        }
+      ]
+    }
+  ]
+}
