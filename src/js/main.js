@@ -1,10 +1,9 @@
-shapes = [];                //shapes are the models in trees
-TreeArray = [];             //TreeArray are the models with PreOrdering 
-                            //they kinda do the same thing, but me too lazy to do it better
+shapes = []; //shapes are the models in trees
+TreeArray = []; //TreeArray are the models with PreOrdering
+//they kinda do the same thing, but me too lazy to do it better
 var selectedObject = null;
 
 modelsCenterPoint = [];
-var isUsingShader = true;
 var isUsingAnimation = false;
 var animationAngle = 0;
 var btn_id = 0;
@@ -20,64 +19,63 @@ function onLoad() {
   //Model For Texting Texture
   loadCube();
 
-  traverseTree(shapes)
-  redraw()
+  traverseTree(shapes);
+  redraw();
 
-  document.getElementById("camera-angle-x").value = 0 //for testing purposes, remove later
-  document.getElementById("camera-angle-y").value = 90
-  changeAngleX()
-  changeAngleY()
+  document.getElementById("camera-angle-x").value = 0; //for testing purposes, remove later
+  document.getElementById("camera-angle-y").value = 90;
+  changeAngleX();
+  changeAngleY();
 }
 
-function preOrder(node,depth) { 
+function preOrder(node, depth) {
   var br = document.createElement("BR");
-  document.getElementById("treecontainer").appendChild(br);       //i dont know how to do this cleaner
+  document.getElementById("treecontainer").appendChild(br); //i dont know how to do this cleaner
 
-  let offset = "&nbsp&nbsp&nbsp"                                            //i dont know how to do this cleaner
-  let newOffset = ""
-  for(var i=0; i<depth; i++){
+  let offset = "&nbsp&nbsp&nbsp"; //i dont know how to do this cleaner
+  let newOffset = "";
+  for (var i = 0; i < depth; i++) {
     newOffset += offset;
   }
-  document.getElementById("treecontainer").innerHTML += newOffset 
+  document.getElementById("treecontainer").innerHTML += newOffset;
 
-  TreeArray.push(node)
-  var btn = document.createElement("BUTTON");    
-  btn.innerText = node.name                
-  btn.id="treebutton" + btn_id;
+  TreeArray.push(node);
+  var btn = document.createElement("BUTTON");
+  btn.innerText = node.name;
+  btn.id = "treebutton" + btn_id;
   btn_id++;
 
   document.getElementById("treecontainer").appendChild(btn);
 
   node.children.forEach(function (child) {
-    preOrder(child,depth+1)
-  })
+    preOrder(child, depth + 1);
+  });
+}
 
-} 
-
-function addListeners(){
-  buttonlist = document.getElementById("treecontainer").querySelectorAll("button")
+function addListeners() {
+  buttonlist = document
+    .getElementById("treecontainer")
+    .querySelectorAll("button");
 
   for (let index = 0; index < buttonlist.length; index++) {
-    buttonlist[index].addEventListener('click',function(){
-      setCurrentObject(index)
-    })
+    buttonlist[index].addEventListener("click", function () {
+      setCurrentObject(index);
+    });
   }
 }
 
-function setCurrentObject(index){
-  selectedObject = TreeArray[index]
-  document.getElementById("selectedobject").innerText = selectedObject.name 
+function setCurrentObject(index) {
+  selectedObject = TreeArray[index];
+  document.getElementById("selectedobject").innerText = selectedObject.name;
 }
 
-function traverseTree(){
+function traverseTree() {
   shapes.forEach(function (shape) {
-    preOrder(shape,0);
-  }); 
+    preOrder(shape, 0);
+  });
   addListeners();
-  setCurrentObject(0)
+  setCurrentObject(0);
 }
-
-
 
 function saveShapes() {
   // json = { type: "model", data: [] };
@@ -102,7 +100,8 @@ function redraw() {
   convertToIdentityMatrix(id);
   view();
   var loop = () => {
-    if (isUsingAnimation) { //NOTE: animation doesnt work because the object is setting its own matWorldLocation everytime it draws, TODO: transform the matrix on the object instead
+    if (isUsingAnimation) {
+      //NOTE: animation doesnt work because the object is setting its own matWorldLocation everytime it draws, TODO: transform the matrix on the object instead
       // create rotAngle based on time in range of [-360, 360]
       rotAngle = (performance.now() / 10000) * 360;
       if (rotAngle > 360) {
@@ -117,9 +116,9 @@ function redraw() {
     gl.uniformMatrix4fv(matWorldLocation, gl.FALSE, worldMatrix);
     gl.clearColor(0.9296875, 0.91015625, 0.8515625, 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-    
+
     shapes.forEach((shape) => {
-      shape.draw(isUsingShader);
+      shape.draw(true);
     });
 
     if (isUsingAnimation) {
@@ -131,7 +130,11 @@ function redraw() {
 
 function toggleShadder() {
   let isShader = document.getElementById("toggleShadder").checked;
-  isUsingShader = isShader;
+  if (isShader) {
+    isUsingShadder = 1.0;
+  } else {
+    isUsingShadder = 0.0;
+  }
   redraw();
 }
 
@@ -139,7 +142,6 @@ function toggleAnimation() {
   isUsingAnimation = document.getElementById("toggleAnimation").checked;
   redraw();
 }
-
 
 onLoad();
 
