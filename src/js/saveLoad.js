@@ -220,6 +220,7 @@ function loadCustomTexture() {
           gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
         }
         textures[0] = texture;
+        redraw();
       };
     };
   };
