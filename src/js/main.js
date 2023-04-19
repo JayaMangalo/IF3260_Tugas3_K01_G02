@@ -4,7 +4,6 @@ TreeArray = []; //TreeArray are the models with PreOrdering
 var selectedObject = null;
 
 modelsCenterPoint = [];
-var isUsingShader = true;
 var isUsingAnimation = false;
 var animationAngle = 0;
 var btn_id = 0;
@@ -144,7 +143,7 @@ function redraw() {
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     shapes.forEach((shape) => {
-      shape.draw(isUsingShader);
+      shape.draw(true);
     });
 
     if (isUsingAnimation) {
@@ -156,7 +155,11 @@ function redraw() {
 
 function toggleShadder() {
   let isShader = document.getElementById("toggleShadder").checked;
-  isUsingShader = isShader;
+  if (isShader) {
+    isUsingShadder = 1.0;
+  } else {
+    isUsingShadder = 0.0;
+  }
   redraw();
 }
 

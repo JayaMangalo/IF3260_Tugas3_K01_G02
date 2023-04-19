@@ -12,6 +12,7 @@ var normalAttribLocation;
 var tangentAttribLocation;
 var bitangentAttribLocation;
 var shadderSource;
+var isUsingShadder = 0.0; //Cannt use boolean because it will be converted to float
 
 var light_source = [1, 1, 0];
 var matWorldLocation;
@@ -102,6 +103,8 @@ function init() {
 
         in vec3 vWorldPosition;
         in vec3 vWorldNormal;
+
+        uniform float isUsingShadder;
         
         uniform vec3 uWorldCameraPosition;
         uniform sampler2D u_texture;
@@ -109,33 +112,38 @@ function init() {
         uniform samplerCube u_texture_environment;
 
         void main() {
-          if(false) {
-            //jika texture mapping
-            vec3 normal = normalize(v_normal);
-            float light = dot(normal, normalize(vec3(1,1,0)));
-
-            outColor = texture(u_texture, v_texcoord);
-            // outColor  = vec4(1,0,0,1);
-
-            outColor.rgb *= light;
-          } else if(true){
-            //jika environment mapping
-            vec3 worldNormal = normalize(vWorldNormal);
-            vec3 eyeToSurfaceDir = normalize(vWorldPosition - uWorldCameraPosition);
-            vec3 direction = normalize(reflect(eyeToSurfaceDir, worldNormal));
-
-            outColor = vec4(texture(u_texture_environment, direction));
+          if(isUsingShadder > 0.5){
+            if(false) {
+              //jika texture mapping
+              vec3 normal = normalize(v_normal);
+              float light = dot(normal, normalize(vec3(1,1,0)));
+  
+              outColor = texture(u_texture, v_texcoord);
+              // outColor  = vec4(1,0,0,1);
+  
+              outColor.rgb *= light;
+            } else if(true){
+              //jika environment mapping
+              vec3 worldNormal = normalize(vWorldNormal);
+              vec3 eyeToSurfaceDir = normalize(vWorldPosition - uWorldCameraPosition);
+              vec3 direction = normalize(reflect(eyeToSurfaceDir, worldNormal));
+  
+              outColor = vec4(texture(u_texture_environment, direction));
+            }
+            else {
+              //jika bump mapping
+              vec3 light_dir = normalize(ts_light_pos - ts_frag_pos);
+              vec3 view_dir = normalize(ts_view_pos - ts_frag_pos);
+              vec3 albedo = texture(u_texture_bump, v_texcoord).rgb;
+              vec3 ambient = 0.3 * albedo;
+              vec3 norm = normalize(texture(u_texture_bump, v_texcoord).rgb * 2.0 - 1.0);
+              float diffuse = max(dot(light_dir, norm), 0.0);
+              outColor = vec4(diffuse * albedo + ambient, 1.0);
+            }
+          }else{
+            outColor = vec4(1,0,0,1);
           }
-          else {
-            //jika bump mapping
-            vec3 light_dir = normalize(ts_light_pos - ts_frag_pos);
-            vec3 view_dir = normalize(ts_view_pos - ts_frag_pos);
-            vec3 albedo = texture(u_texture_bump, v_texcoord).rgb;
-            vec3 ambient = 0.3 * albedo;
-            vec3 norm = normalize(texture(u_texture_bump, v_texcoord).rgb * 2.0 - 1.0);
-            float diffuse = max(dot(light_dir, norm), 0.0);
-            outColor = vec4(diffuse * albedo + ambient, 1.0);
-          }
+          
         }`,
   };
   //Create Shadder
@@ -258,6 +266,7 @@ function init() {
     program,
     "uWorldCameraPosition"
   );
+  isUsingShadderLocation = gl.getUniformLocation(program, "isUsingShadder");
 
   // lightSourceVector = new Float32Array(light_source)
   worldMatrix = new Float32Array(16);
@@ -401,24 +410,13 @@ function view() {
   gl.uniformMatrix4fv(matWorldLocation, gl.FALSE, worldMatrix);
   gl.uniformMatrix4fv(matViewLocation, gl.FALSE, viewMatrix);
   gl.uniformMatrix4fv(matProjLocation, gl.FALSE, projMatrix);
-  gl.uniformMatrix4fv(
-    matViewModelLocation,
-    gl.FALSE,
-    multiply(viewMatrix, worldMatrix)
-  );
-  gl.uniformMatrix4fv(
-    matNormalLocation,
-    gl.FALSE,
-    transpose(inverse(multiply(viewMatrix, worldMatrix)))
-  );
-  gl.uniform3fv(cameraPosisionLocation, [
-    cameraMatrix[12],
-    cameraMatrix[13],
-    cameraMatrix[14],
-  ]);
+  gl.uniformMatrix4fv(matViewModelLocation,gl.FALSE,multiply(viewMatrix, worldMatrix));
+  gl.uniformMatrix4fv(matNormalLocation,gl.FALSE,transpose(inverse(multiply(viewMatrix, worldMatrix))));
+  gl.uniform3fv(cameraPosisionLocation, [cameraMatrix[12],cameraMatrix[13],cameraMatrix[14],]);
   gl.uniform1i(textureLocation, 0);
   gl.uniform1i(textureLocationBump, 1);
   gl.uniform1i(textureLocationEnvironment, 2);
+  gl.uniform1f(isUsingShadderLocation, isUsingShadder);
 
   //Bind the texture
   gl.activeTexture(gl.TEXTURE0 + 0);
