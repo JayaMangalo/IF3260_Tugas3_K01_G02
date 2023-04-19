@@ -13,6 +13,7 @@ var tangentAttribLocation;
 var bitangentAttribLocation;
 var shadderSource;
 var isUsingShadder = 0.0; //Cannt use boolean because it will be converted to float
+var choosenTexture = 0.0; //0.0 = custom texture, 1.0 = environment texture, 2.0 = bump texture
 
 var light_source = [1, 1, 0];
 var matWorldLocation;
@@ -105,6 +106,7 @@ function init() {
         in vec3 vWorldNormal;
 
         uniform float isUsingShadder;
+        uniform float choosenTexture;
         
         uniform vec3 uWorldCameraPosition;
         uniform sampler2D u_texture;
@@ -113,16 +115,16 @@ function init() {
 
         void main() {
           if(isUsingShadder > 0.5){
-            if(true) {
+            if(choosenTexture == 0.0) {
               //jika texture mapping
               vec3 normal = normalize(v_normal);
-              float light = dot(normal, normalize(vec3(1,1,0)));
+              float light = dot(normal, normalize(vec3(1,1,1)));
   
               outColor = texture(u_texture, v_texcoord);
               // outColor  = vec4(1,0,0,1);
   
               outColor.rgb *= light;
-            } else if(true){
+            } else if(choosenTexture == 1.0){
               //jika environment mapping
               vec3 worldNormal = normalize(vWorldNormal);
               vec3 eyeToSurfaceDir = normalize(vWorldPosition - uWorldCameraPosition);
@@ -141,7 +143,7 @@ function init() {
               outColor = vec4(diffuse * albedo + ambient, 1.0);
             }
           }else{
-            outColor = vec4(1,0,0,1);
+            outColor = vec4(0,0,0,1);
           }
           
         }`,
@@ -267,6 +269,7 @@ function init() {
     "uWorldCameraPosition"
   );
   isUsingShadderLocation = gl.getUniformLocation(program, "isUsingShadder");
+  choosenTextureLocation = gl.getUniformLocation(program, "choosenTexture");
 
   // lightSourceVector = new Float32Array(light_source)
   worldMatrix = new Float32Array(16);
@@ -417,6 +420,7 @@ function view() {
   gl.uniform1i(textureLocationBump, 1);
   gl.uniform1i(textureLocationEnvironment, 2);
   gl.uniform1f(isUsingShadderLocation, isUsingShadder);
+  gl.uniform1f(choosenTextureLocation, choosenTexture);
 
   //Bind the texture
   gl.activeTexture(gl.TEXTURE0 + 0);

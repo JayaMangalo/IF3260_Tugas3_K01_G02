@@ -612,3 +612,7 @@ function calculateTangetSpace(p1,p2,p3){
   let result = normal.concat(tangent).concat(bitangent)
   return result
 }
+
+function isPowerOf2(value) {
+  return (value & (value - 1)) == 0;
+}

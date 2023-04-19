@@ -170,6 +170,18 @@ function toggleAnimation() {
 
 onLoad();
 
+function changeTexture() {
+  var texture = document.getElementById("texture").value;
+  if (texture == "custom") {
+    choosenTexture = 0.0;
+  } else if (texture == "env") {
+    choosenTexture = 1.0;
+  } else {
+    choosenTexture = 2.0;
+  }
+  redraw();
+}
+
 //TODO
 
 //CORE STUFF

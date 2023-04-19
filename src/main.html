@@ -28,6 +28,14 @@
           <div>
             <button onclick="loadCustomTexture()" id="change-texture">Load Custom Texture</button>
           </div>
+          <div>
+            <label for="texture">Choose Texture:</label>
+            <select name="texture" id="texture" onchange="changeTexture()">
+              <option value="custom">Custom Texture</option>
+              <option value="env">Environment Texture</option>
+              <option value="bump">Bump Texture</option>
+            </select>
+          </div>
 
           <div class="view-config-container">
             <div class="camera-settings">
