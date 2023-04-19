@@ -22,8 +22,8 @@
 
           <h2>Save & Load</h2>
           <div class="save-container">
-            <button onclick="saveShapes()" id="save-button">Save</button>
-            <button onclick="loadShapes()" id="load-button">Load</button>
+            <button onclick="saveModel()" id="save-button">Save</button>
+            <button onclick="loadModel()" id="load-button">Load</button>
           </div>
 
           <div class="view-config-container">
@@ -139,6 +139,25 @@
 
       <div class="right-side-bar" id="sidebar">
         <h2>Transform</h2>
+
+        <div id="save-load-frame-container">
+          <button onclick="saveFrame()" id="save-frame-button">
+            Save Frame
+          </button>
+          <button onclick="loadFrame()" id="load-frame-button">
+            Load Frame
+          </button>
+        </div>
+
+        <div id="load-play-container">
+          <button onclick="playAnimation()" id="play-animation-button">
+            Play
+          </button>
+          <button onclick="loadAnimation()" id="load-animation-button">
+            Load Animation
+          </button>
+        </div>
+
         <h3>Rotate</h3>
         <div>
           <label for="x-rotate" class="slider-label"
@@ -268,10 +287,9 @@
             oninput="scaleZ({value})"
           />
         </div>
-        <div class="treecontainer" id ="treecontainer">
-          
+        <div class="treecontainer" id="treecontainer">
           Tree: <span id="selectedobject">Nothing</span>
-        
+          <div id="tree"></div>
         </div>
       </div>
     </div>
@@ -285,10 +303,11 @@
     <script src="js/models/loadexperiment.js"></script>
     <script src="js/models/tank.js"></script>
     <script src="js/models/cube.js"></script>
+    <script src="js/models/dog.js"></script>
     <script src="js/camera.js"></script>
     <script src="js/transform.js"></script>
+    <script src="js/saveLoad.js"></script>
 
     <script src="js/main.js"></script>
-
   </body>
 </html>
