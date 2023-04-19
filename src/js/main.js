@@ -8,6 +8,7 @@ var isUsingAnimation = false;
 var animationAngle = 0;
 var btn_id = 0;
 
+var fps = 3;
 var frames = [];
 var isPlaying = false;
 
@@ -17,8 +18,8 @@ function onLoad() {
 
   //Real Model
   // loadEXPERIMENT();
-  // loadTank();
-  loadDog();
+  loadTank();
+  // loadDog();
 
   //Model For Texting Texture
   // loadCube();
@@ -80,9 +81,12 @@ function traverseTree() {
   setCurrentObject(0);
 }
 
+function changeFPS(){
+  fps = document.getElementById("fps").value;
+  document.getElementById("fps-value").innerHTML = fps;
+}
+
 function playAnimation() {
-  // 3 fps
-  var fps = 3;
   var interval = 1000 / fps;
 
   if (frames.length == 0) {

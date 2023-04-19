@@ -1,0 +1,415 @@
+{
+  "type": "model",
+  "data": [
+    {
+      "type": "block",
+      "name": "Hull",
+      "origin": [0, 0, -40],
+      "length": 20,
+      "height": 10,
+      "width": 55,
+      "children": [
+        {
+          "type": "block",
+          "name": "Left Hull",
+          "origin": [20, 7, -40],
+          "length": 8.5,
+          "height": 3,
+          "width": 55,
+          "children": [
+            {
+              "type": "block",
+              "name": "Left Protection",
+              "origin": [28.4, 3, -40],
+              "length": 0.1,
+              "height": 4,
+              "width": 55,
+              "children": []
+            },
+            {
+              "type": "block",
+              "name": "Left Track",
+              "origin": [20.5, 0, -15],
+              "length": 0,
+              "height": 0,
+              "width": 0,
+              "children": [
+                {
+                  "type": "block",
+                  "name": "Left Back Drive Sprocket",
+                  "origin": [20.5, 0, -50],
+                  "length": 7.5,
+                  "height": 7.5,
+                  "width": 7.5,
+                  "children": []
+                },
+                {
+                  "type": "block",
+                  "name": "Left Front Drive Sprocket",
+                  "origin": [20.5, 0, 20],
+                  "length": 7.5,
+                  "height": 7.5,
+                  "width": 7.5,
+                  "children": []
+                },
+                {
+                  "type": "block",
+                  "name": "Left Road Wheel 1",
+                  "origin": [20.5, -5, 10],
+                  "length": 7.5,
+                  "height": 7.5,
+                  "width": 7.5,
+                  "children": []
+                },
+                {
+                  "type": "block",
+                  "name": "Left Road Wheel 2",
+                  "origin": [20.5, -5, 0],
+                  "length": 7.5,
+                  "height": 7.5,
+                  "width": 7.5,
+                  "children": []
+                },
+                {
+                  "type": "block",
+                  "name": "Left Road Wheel 3",
+                  "origin": [20.5, -5, -10],
+                  "length": 7.5,
+                  "height": 7.5,
+                  "width": 7.5,
+                  "children": []
+                },
+                {
+                  "type": "block",
+                  "name": "Left Road Wheel 4",
+                  "origin": [20.5, -5, -20],
+                  "length": 7.5,
+                  "height": 7.5,
+                  "width": 7.5,
+                  "children": []
+                },
+                {
+                  "type": "block",
+                  "name": "Left Road Wheel 5",
+                  "origin": [20.5, -5, -30],
+                  "length": 7.5,
+                  "height": 7.5,
+                  "width": 7.5,
+                  "children": []
+                },
+                {
+                  "type": "block",
+                  "name": "Left Road Wheel 6",
+                  "origin": [20.5, -5, -40],
+                  "length": 7.5,
+                  "height": 7.5,
+                  "width": 7.5,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "block",
+          "name": "Right Hull",
+          "origin": [-8.5, 7, -40],
+          "length": 8.5,
+          "height": 3,
+          "width": 55,
+          "children": [
+            {
+              "type": "block",
+              "name": "Right Protection",
+              "origin": [-8.5, 3, -40],
+              "length": 0.1,
+              "height": 4,
+              "width": 55,
+              "children": []
+            },
+            {
+              "type": "block",
+              "name": "Right Track",
+              "origin": [-8, 0, -15],
+              "length": 0,
+              "height": 0,
+              "width": 0,
+              "children": [
+                {
+                  "type": "block",
+                  "name": "Right Back Drive Sprocket",
+                  "origin": [-8, 0, -50],
+                  "length": 7.5,
+                  "height": 7.5,
+                  "width": 7.5,
+                  "children": []
+                },
+                {
+                  "type": "block",
+                  "name": "Right Front Drive Sprocket",
+                  "origin": [-8, 0, 20],
+                  "length": 7.5,
+                  "height": 7.5,
+                  "width": 7.5,
+                  "children": []
+                },
+                {
+                  "type": "block",
+                  "name": "Right Road Wheel 1",
+                  "origin": [-8, -5, 10],
+                  "length": 7.5,
+                  "height": 7.5,
+                  "width": 7.5,
+                  "children": []
+                },
+                {
+                  "type": "block",
+                  "name": "Right Road Wheel 2",
+                  "origin": [-8, -5, 0],
+                  "length": 7.5,
+                  "height": 7.5,
+                  "width": 7.5,
+                  "children": []
+                },
+                {
+                  "type": "block",
+                  "name": "Right Road Wheel 3",
+                  "origin": [-8, -5, -10],
+                  "length": 7.5,
+                  "height": 7.5,
+                  "width": 7.5,
+                  "children": []
+                },
+                {
+                  "type": "block",
+                  "name": "Right Road Wheel 4",
+                  "origin": [-8, -5, -20],
+                  "length": 7.5,
+                  "height": 7.5,
+                  "width": 7.5,
+                  "children": []
+                },
+                {
+                  "type": "block",
+                  "name": "Right Road Wheel 5",
+                  "origin": [-8, -5, -30],
+                  "length": 7.5,
+                  "height": 7.5,
+                  "width": 7.5,
+                  "children": []
+                },
+                {
+                  "type": "block",
+                  "name": "Right Road Wheel 6",
+                  "origin": [-8, -5, -40],
+                  "length": 7.5,
+                  "height": 7.5,
+                  "width": 7.5,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "block",
+          "name": "Front Plate",
+          "origin": [0, 0, 15],
+          "length": 0,
+          "height": 0,
+          "width": 0,
+          "children": [
+            {
+              "type": "triangularPrism",
+              "name": "Upper Front Plate",
+              "origin": [-8.5, 7, 15],
+              "length": 37,
+              "height": 3,
+              "width": 20,
+              "removed_batang": 0,
+              "children": []
+            },
+            {
+              "type": "triangularPrism",
+              "name": "Lower Front Plate",
+              "origin": [0, 0, 15],
+              "length": 20,
+              "height": 7,
+              "width": 20,
+              "removed_batang": 1,
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "block",
+          "name": "Engine",
+          "origin": [-8.5, 7, -55],
+          "length": 37,
+          "height": 3,
+          "width": 15,
+          "children": [
+            {
+              "type": "triangularPrism",
+              "name": "Upper Engine",
+              "origin": [-8.5, 10, -55],
+              "length": 37,
+              "height": 2,
+              "width": 30,
+              "removed_batang": 0,
+              "children": []
+            },
+            {
+              "type": "triangularPrism",
+              "name": "Lower Engine",
+              "origin": [0, 0, -55],
+              "length": 20,
+              "height": 7,
+              "width": 15,
+              "removed_batang": 7,
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "block",
+          "name": "Turret",
+          "origin": [0, 10.5, -20],
+          "length": 20,
+          "height": 8,
+          "width": 30,
+          "children": [
+            {
+              "type": "block",
+              "name": "Turret Ring",
+              "origin": [0, 10, -20],
+              "length": 20,
+              "height": 0.5,
+              "width": 25,
+              "children": []
+            },
+            {
+              "type": "triangularPrism",
+              "name": "Left Turret Cheek",
+              "origin": [14, 10.5, 10],
+              "length": 6,
+              "height": 7.5,
+              "width": 9.5,
+              "removed_batang": 9,
+              "children": []
+            },
+            {
+              "type": "triangularPrism",
+              "name": "Right Turret Cheek",
+              "origin": [0, 10.5, 10],
+              "length": 6,
+              "height": 7.5,
+              "width": 9.5,
+              "removed_batang": 8,
+              "children": []
+            },
+            {
+              "type": "block",
+              "name": "Cannon Breech",
+              "origin": [6, 11, 10],
+              "length": 8,
+              "height": 7.5,
+              "width": 10,
+              "children": [
+                {
+                  "type": "block",
+                  "name": "Cannon Barrel",
+                  "origin": [8.5, 13, 20],
+                  "length": 3,
+                  "height": 3,
+                  "width": 35,
+                  "children": [
+                    {
+                      "type": "block",
+                      "name": "Fume Extractor",
+                      "origin": [8, 13, 30],
+                      "length": 4,
+                      "height": 4,
+                      "width": 5,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "block",
+              "name": "Back Turret",
+              "origin": [0, 12.5, -35],
+              "length": 20,
+              "height": 6,
+              "width": 15,
+              "children": [
+                {
+                  "type": "triangularPrism",
+                  "name": "Lower Back Turret",
+                  "origin": [0, 10.5, -30],
+                  "length": 20,
+                  "height": 2,
+                  "width": 20,
+                  "removed_batang": 7,
+                  "children": []
+                },
+                {
+                  "type": "block",
+                  "name": 7,
+                  "origin": [5, 12.5, -40],
+                  "length": 10,
+                  "height": 6,
+                  "width": 5,
+                  "children": [
+                    {
+                      "type": "triangularPrism",
+                      "name": "Left Back Back Turret",
+                      "origin": [15, 12.5, -40],
+                      "length": 5,
+                      "height": 6,
+                      "width": 5,
+                      "removed_batang": 11,
+                      "children": []
+                    },
+                    {
+                      "type": "triangularPrism",
+                      "name": "Right Back Back Turret",
+                      "origin": [0, 12.5, -40],
+                      "length": 5,
+                      "height": 6,
+                      "width": 5,
+                      "removed_batang": 10,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "block",
+              "name": "Roof",
+              "origin": [0, 18.5, -35],
+              "length": 20,
+              "height": 1.5,
+              "width": 35,
+              "children": [
+                {
+                  "type": "triangularPrism",
+                  "name": "Front Roof",
+                  "origin": [0, 18.5, 0],
+                  "length": 20,
+                  "height": 1.5,
+                  "width": 10,
+                  "removed_batang": 0,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
