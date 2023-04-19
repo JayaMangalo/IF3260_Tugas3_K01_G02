@@ -1,0 +1,79 @@
+{
+  "type": "frame",
+  "data": {
+    "transformations": [
+      {
+        "translation": [0, "0", "2"],
+        "rotation": [0, -1.5533430342749535, 0],
+        "scalation": [10, 10, 10],
+        "translationSTree": [0, 0, 0],
+        "rotationSTree": [0, 0, 0],
+        "scalationSTree": [10, 10, 10]
+      },
+      {
+        "translation": [0, 0, 0],
+        "rotation": [0, 0, 0],
+        "scalation": [10, 10, 10],
+        "translationSTree": [0, 0, 0],
+        "rotationSTree": [0, 0, 0],
+        "scalationSTree": [10, 10, 10]
+      },
+      {
+        "translation": [0, 0, 0],
+        "rotation": [0, 0, 0],
+        "scalation": [10, 10, 10],
+        "translationSTree": [0, 0, 0],
+        "rotationSTree": [0, 0, 0],
+        "scalationSTree": [10, 10, 10]
+      },
+      {
+        "translation": [0, 0, 0],
+        "rotation": [0, 0, 0],
+        "scalation": [10, 10, 10],
+        "translationSTree": [0, 0, 0],
+        "rotationSTree": [0, 0, 0],
+        "scalationSTree": [10, 10, 10]
+      },
+      {
+        "translation": [0, 0, 0],
+        "rotation": [0, 0, 0],
+        "scalation": [10, 10, 10],
+        "translationSTree": [0, 0, 0],
+        "rotationSTree": [0, 0, 0],
+        "scalationSTree": [10, 10, 10]
+      },
+      {
+        "translation": [0, 0, 0],
+        "rotation": [0, 0, -0.5934119456780721],
+        "scalation": [10, 10, 10],
+        "translationSTree": [0, 0, 0],
+        "rotationSTree": [0, 0, 0],
+        "scalationSTree": [10, 10, 10]
+      },
+      {
+        "translation": [0, 0, 0],
+        "rotation": [0, 0, 0.5934119456780721],
+        "scalation": [10, 10, 10],
+        "translationSTree": [0, 0, 0],
+        "rotationSTree": [0, 0, 0],
+        "scalationSTree": [10, 10, 10]
+      },
+      {
+        "translation": [0, 0, "-3"],
+        "rotation": [0, 0, -0.5934119456780721],
+        "scalation": [10, 10, 10],
+        "translationSTree": [0, 0, 0],
+        "rotationSTree": [0, 0, 0],
+        "scalationSTree": [10, 10, 10]
+      },
+      {
+        "translation": [0, 0, 0],
+        "rotation": [0, 0, 0.5934119456780721],
+        "scalation": [10, 10, 10],
+        "translationSTree": [0, 0, 0],
+        "rotationSTree": [0, 0, 0],
+        "scalationSTree": [10, 10, 10]
+      }
+    ]
+  }
+}
