@@ -176,3 +176,34 @@ function loadAnimation() {
   };
   input.click();
 }
+
+function loadCustomTexture() {
+  var input = document.createElement("input");
+  input.type = "file";
+  input.accept = ".jpg, .png, .jpeg";
+  input.onchange = (e) => {
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (readerEvent) => {
+      var content = readerEvent.target.result;
+      var img = new Image();
+      img.src = content;
+      img.onload = () => {
+        var texture = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, texture);
+        gl.texImage2D(
+          gl.TEXTURE_2D,
+          0,
+          gl.RGBA,
+          gl.RGBA,
+          gl.UNSIGNED_BYTE,
+          img
+        );
+        gl.generateMipmap(gl.TEXTURE_2D);
+        textures[0] = texture;
+      };
+    };
+  };
+  input.click();
+}

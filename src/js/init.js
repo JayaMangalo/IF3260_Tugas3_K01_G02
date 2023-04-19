@@ -113,7 +113,7 @@ function init() {
 
         void main() {
           if(isUsingShadder > 0.5){
-            if(false) {
+            if(true) {
               //jika texture mapping
               vec3 normal = normalize(v_normal);
               float light = dot(normal, normalize(vec3(1,1,0)));
