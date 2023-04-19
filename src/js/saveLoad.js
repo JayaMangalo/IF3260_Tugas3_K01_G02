@@ -1,12 +1,24 @@
 function traverseComponents(component) {
   // create a new object, used when loading model from json
-  var obj = new Block(
-    component.origin,
-    component.length,
-    component.height,
-    component.width,
-    component.name
-  );
+  var obj;
+  if (component.type == "block") {
+    obj = new Block(
+      component.origin,
+      component.length,
+      component.height,
+      component.width,
+      component.name
+    );
+  } else if (component.type == "triangularPrism") {
+    obj = new TriangularPrism(
+      component.origin,
+      component.length,
+      component.height,
+      component.width,
+      component.removed_batang,
+      component.name
+    );
+  }
 
   if (component.children.length > 0) {
     for (child of component.children) {
@@ -83,8 +95,6 @@ function saveFrame() {
 }
 
 function loadFrame() {
-  // TODO: load transformation for all components instead of selected object
-  console.log("Loading Frame");
   var input = document.createElement("input");
   input.type = "file";
   input.accept = ".json";
