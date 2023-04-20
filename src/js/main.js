@@ -19,8 +19,8 @@ function onLoad() {
   //Real Model
   // loadEXPERIMENT();
   // loadTank();
-  // loadDog();
-  loadPerson();
+  loadDog();
+  // loadPerson();
 
   //Model For Texting Texture
   // loadCube();
