@@ -21,6 +21,7 @@ function onLoad() {
   // loadTank();
   // loadDog();
   // loadPerson();
+  // loadDuck();
 
   //Model For Texting Texture
   // loadCube();
