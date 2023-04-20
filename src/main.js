@@ -24,7 +24,7 @@ function onLoad() {
   // loadTank();
   // loadDog();
   // loadPerson();
-  // loadDuck();
+  loadDuck();
 
   //Model For Texting Texture
   // loadCube();
@@ -240,11 +240,6 @@ function toggleShadder() {
   } else {
     isUsingShadder = 0.0;
   }
-  redraw();
-}
-
-function toggleAnimation() {
-  isUsingAnimation = document.getElementById("toggleAnimation").checked;
   redraw();
 }
 
