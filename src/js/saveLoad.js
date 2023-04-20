@@ -72,6 +72,50 @@ function loadModel() {
   input.click();
 }
 
+function addComponent() {
+  var input = document.createElement("input");
+  input.type = "file";
+  input.accept = ".json";
+  input.onchange = (e) => {
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.readAsText(file, "UTF-8");
+    reader.onload = (readerEvent) => {
+      var content = readerEvent.target.result;
+      var json = JSON.parse(content);
+      if (json.type != "model") {
+        alert("Invalid file");
+        return;
+      }
+      // only load the first model
+      const model = json.data[0];
+      var obj = traverseComponents(model);
+      selectedObject.appendChild(obj);
+      TreeArray = [];
+      traverseTree();
+      redraw();
+    };
+  };
+  input.click();
+}
+
+function saveComponent() {
+  json = { type: "model", data: [] };
+
+  json.data.push(selectedObject.toJson());
+
+  const link = document.createElement("a");
+  const file = new Blob([JSON.stringify(json)], { type: "text/plain" });
+  link.href = URL.createObjectURL(file);
+  link.download = selectedObject.name + ".json";
+  link.click();
+  link.remove();
+}
+
+function loadComponent() {
+
+}
+
 function saveFrame() {
   json = { type: "frame", data: { transformations: [] } };
 

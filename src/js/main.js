@@ -18,11 +18,11 @@ function onLoad() {
 
   //Real Model
   // loadEXPERIMENT();
-  loadTank();
+  // loadTank();
   // loadDog();
 
   //Model For Texting Texture
-  // loadCube();
+  loadCube();
 
   traverseTree(shapes);
   redraw();
@@ -59,6 +59,8 @@ function preOrder(node, depth) {
 
 function addListeners() {
   buttonlist = document.getElementById("tree").querySelectorAll("button");
+  console.log(buttonlist);
+  console.log(TreeArray);
 
   for (let index = 0; index < buttonlist.length; index++) {
     buttonlist[index].addEventListener("click", function () {
@@ -70,9 +72,11 @@ function addListeners() {
 function setCurrentObject(index) {
   selectedObject = TreeArray[index];
   document.getElementById("selectedobject").innerText = selectedObject.name;
+  // console.log(selectedObject);
 }
 
 function traverseTree() {
+  console.log(shapes);
   document.getElementById("tree").innerHTML = "";
   shapes.forEach(function (shape) {
     preOrder(shape, 0);
@@ -154,6 +158,7 @@ function redraw() {
       requestAnimationFrame(loop);
     }
   };
+  console.log(shapes);
   requestAnimationFrame(loop);
 }
 
