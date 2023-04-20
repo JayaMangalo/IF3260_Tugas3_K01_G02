@@ -114,38 +114,35 @@ function init() {
         uniform samplerCube u_texture_environment;
 
         void main() {
-          if(isUsingShadder > 0.5){
-            if(choosenTexture == 0.0) {
-              //jika texture mapping
-              vec3 normal = normalize(v_normal);
-              float light = dot(normal, normalize(vec3(1,1,1)));
-  
-              outColor = texture(u_texture, v_texcoord);
-              // outColor  = vec4(1,0,0,1);
-  
+          if(choosenTexture == 0.0) {
+            //jika texture mapping
+            vec3 normal = normalize(v_normal);
+            float light = dot(normal, normalize(vec3(1,1,1)));
+
+            outColor = texture(u_texture, v_texcoord);
+            // outColor  = vec4(1,0,0,1);
+
+            if(isUsingShadder > 0.5){
               outColor.rgb *= light;
-            } else if(choosenTexture == 1.0){
-              //jika environment mapping
-              vec3 worldNormal = normalize(vWorldNormal);
-              vec3 eyeToSurfaceDir = normalize(vWorldPosition - uWorldCameraPosition);
-              vec3 direction = normalize(reflect(eyeToSurfaceDir, worldNormal));
-  
-              outColor = vec4(texture(u_texture_environment, direction));
             }
-            else {
-              //jika bump mapping
-              vec3 light_dir = normalize(ts_light_pos - ts_frag_pos);
-              vec3 view_dir = normalize(ts_view_pos - ts_frag_pos);
-              vec3 albedo = texture(u_texture_bump, v_texcoord).rgb;
-              vec3 ambient = 0.3 * albedo;
-              vec3 norm = normalize(texture(u_texture_bump, v_texcoord).rgb * 2.0 - 1.0);
-              float diffuse = max(dot(light_dir, norm), 0.0);
-              outColor = vec4(diffuse * albedo + ambient, 1.0);
-            }
-          }else{
-            outColor = vec4(0,0,0,1);
+          } else if(choosenTexture == 1.0){
+            //jika environment mapping
+            vec3 worldNormal = normalize(vWorldNormal);
+            vec3 eyeToSurfaceDir = normalize(vWorldPosition - uWorldCameraPosition);
+            vec3 direction = normalize(reflect(eyeToSurfaceDir, worldNormal));
+
+            outColor = vec4(texture(u_texture_environment, direction));
           }
-          
+          else {
+            //jika bump mapping
+            vec3 light_dir = normalize(ts_light_pos - ts_frag_pos);
+            vec3 view_dir = normalize(ts_view_pos - ts_frag_pos);
+            vec3 albedo = texture(u_texture_bump, v_texcoord).rgb;
+            vec3 ambient = 0.3 * albedo;
+            vec3 norm = normalize(texture(u_texture_bump, v_texcoord).rgb * 2.0 - 1.0);
+            float diffuse = max(dot(light_dir, norm), 0.0);
+            outColor = vec4(diffuse * albedo + ambient, 1.0);
+          }        
         }`,
   };
   //Create Shadder
