@@ -195,247 +195,254 @@
         </div>
 
         <h2>Transform</h2>
-        <h3>Rotate</h3>
-        <div>
-          <label for="x-rotate" class="slider-label"
-            >X: <span id="x-angle">0</span></label
-          >
-          <input
-            id="x-rotate"
-            name="x-rotate"
-            min="-360"
-            max="360"
-            value="0"
-            oninput="rotateX({value})"
-          />
-        </div>
-        <div>
-          <label for="y-rotate" class="slider-label"
-            >Y: <span id="y-angle">0</span></label
-          >
-          <input
-            id="y-rotate"
-            name="y-rotate"
-            min="-360"
-            max="360"
-            value="0"
-            oninput="rotateY({value})"
-          />
-        </div>
-        <div>
-          <label for="z-rotate" class="slider-label"
-            >Z: <span id="z-angle">0</span></label
-          >
-          <input
-            id="z-rotate"
-            name="z-rotate"
-            min="-360"
-            max="360"
-            value="0"
-            oninput="rotateZ({value})"
-          />
-        </div>
-        <h3>Translate</h3>
-        <div>
-          <label for="x-translate" class="slider-label"
-            >X: <span id="x-distance">0</span></label
-          >
-          <input
-            id="x-translate"
-            name="x-translate"
-            min="-100"
-            max="100"
-            value="0"
-            oninput="translateX({value})"
-          />
-        </div>
-        <div>
-          <label for="y-translate" class="slider-label"
-            >Y: <span id="y-distance">0</span></label
-          >
-          <input
-            id="y-translate"
-            name="y-translate"
-            min="-100"
-            max="100"
-            value="0"
-            oninput="translateY({value})"
-          />
-        </div>
-        <div>
-          <label for="z-translate" class="slider-label"
-            >Z: <span id="z-distance">0</span></label
-          >
-          <input
-            id="z-translate"
-            name="z-translate"
-            min="-100"
-            max="100"
-            value="0"
-            oninput="translateZ({value})"
-          />
-        </div>
-        <h3>Scale</h3>
-        <div>
-          <label for="x-scale" class="slider-label"
-            >X: <span id="x-ratio">10</span></label
-          >
-          <input
-            id="x-scale"
-            name="x-scale"
-            min="1"
-            max="100"
-            value="10"
-            oninput="scaleX({value})"
-          />
-        </div>
-        <div>
-          <label for="y-scale" class="slider-label"
-            >Y: <span id="y-ratio">10</span></label
-          >
-          <input
-            id="y-scale"
-            name="y-scale"
-            min="1"
-            max="100"
-            value="10"
-            oninput="scaleY({value})"
-          />
-        </div>
-        <div>
-          <label for="z-scale" class="slider-label"
-            >Z: <span id="z-ratio">10</span></label
-          >
-          <input
-            id="z-scale"
-            name="z-scale"
-            min="1"
-            max="100"
-            value="10"
-            oninput="scaleZ({value})"
-          />
+        <div class="transform-container">
+          <div class="transform-inputs">
+            <h3>Rotate</h3>
+            <div>
+              <label for="x-rotate" class="slider-label"
+                >X: <span id="x-angle">0</span></label
+              >
+              <input
+                id="x-rotate"
+                name="x-rotate"
+                min="-360"
+                max="360"
+                value="0"
+                oninput="rotateX({value})"
+              />
+            </div>
+            <div>
+              <label for="y-rotate" class="slider-label"
+                >Y: <span id="y-angle">0</span></label
+              >
+              <input
+                id="y-rotate"
+                name="y-rotate"
+                min="-360"
+                max="360"
+                value="0"
+                oninput="rotateY({value})"
+              />
+            </div>
+            <div>
+              <label for="z-rotate" class="slider-label"
+                >Z: <span id="z-angle">0</span></label
+              >
+              <input
+                id="z-rotate"
+                name="z-rotate"
+                min="-360"
+                max="360"
+                value="0"
+                oninput="rotateZ({value})"
+              />
+            </div>
+            <h3>Translate</h3>
+            <div>
+              <label for="x-translate" class="slider-label"
+                >X: <span id="x-distance">0</span></label
+              >
+              <input
+                id="x-translate"
+                name="x-translate"
+                min="-100"
+                max="100"
+                value="0"
+                oninput="translateX({value})"
+              />
+            </div>
+            <div>
+              <label for="y-translate" class="slider-label"
+                >Y: <span id="y-distance">0</span></label
+              >
+              <input
+                id="y-translate"
+                name="y-translate"
+                min="-100"
+                max="100"
+                value="0"
+                oninput="translateY({value})"
+              />
+            </div>
+            <div>
+              <label for="z-translate" class="slider-label"
+                >Z: <span id="z-distance">0</span></label
+              >
+              <input
+                id="z-translate"
+                name="z-translate"
+                min="-100"
+                max="100"
+                value="0"
+                oninput="translateZ({value})"
+              />
+            </div>
+            <h3>Scale</h3>
+            <div>
+              <label for="x-scale" class="slider-label"
+                >X: <span id="x-ratio">10</span></label
+              >
+              <input
+                id="x-scale"
+                name="x-scale"
+                min="1"
+                max="100"
+                value="10"
+                oninput="scaleX({value})"
+              />
+            </div>
+            <div>
+              <label for="y-scale" class="slider-label"
+                >Y: <span id="y-ratio">10</span></label
+              >
+              <input
+                id="y-scale"
+                name="y-scale"
+                min="1"
+                max="100"
+                value="10"
+                oninput="scaleY({value})"
+              />
+            </div>
+            <div>
+              <label for="z-scale" class="slider-label"
+                >Z: <span id="z-ratio">10</span></label
+              >
+              <input
+                id="z-scale"
+                name="z-scale"
+                min="1"
+                max="100"
+                value="10"
+                oninput="scaleZ({value})"
+              />
+            </div>
+          </div>
+          
+          <div class="transformS-inputs">
+            <h3>Rotate-S</h3>
+            <div>
+              <label for="xs-rotate" class="slider-label"
+                >X-S: <span id="xs-angle">0</span></label
+              >
+              <input
+                id="xs-rotate"
+                name="xs-rotate"
+                min="-360"
+                max="360"
+                value="0"
+                oninput="rotateXSTree({value})"
+              />
+            </div>
+            <div>
+              <label for="ys-rotate" class="slider-label"
+                >Y-S: <span id="ys-angle">0</span></label
+              >
+              <input
+                id="ys-rotate"
+                name="ys-rotate"
+                min="-360"
+                max="360"
+                value="0"
+                oninput="rotateYSTree({value})"
+              />
+            </div>
+            <div>
+              <label for="zs-rotate" class="slider-label"
+                >Z-S: <span id="zs-angle">0</span></label
+              >
+              <input
+                id="zs-rotate"
+                name="zs-rotate"
+                min="-360"
+                max="360"
+                value="0"
+                oninput="rotateZSTree({value})"
+              />
+            </div>
+            <h3>Translate-S</h3>
+            <div>
+              <label for="xs-translate" class="slider-label"
+                >X-S: <span id="xs-distance">0</span></label
+              >
+              <input
+                id="xs-translate"
+                name="xs-translate"
+                min="-100"
+                max="100"
+                value="0"
+                oninput="translateXSTree({value})"
+              />
+            </div>
+            <div>
+              <label for="ys-translate" class="slider-label"
+                >Y-S: <span id="ys-distance">0</span></label
+              >
+              <input
+                id="ys-translate"
+                name="ys-translate"
+                min="-100"
+                max="100"
+                value="0"
+                oninput="translateYSTree({value})"
+              />
+            </div>
+            <div>
+              <label for="zs-translate" class="slider-label"
+                >Z-S: <span id="zs-distance">0</span></label
+              >
+              <input
+                id="zs-translate"
+                name="zs-translate"
+                min="-100"
+                max="100"
+                value="0"
+                oninput="translateZSTree({value})"
+              />
+            </div>
+            <h3>Scale-S</h3>
+            <div>
+              <label for="xs-scale" class="slider-label"
+                >X-S: <span id="xs-ratio">10</span></label
+              >
+              <input
+                id="xs-scale"
+                name="xs-scale"
+                min="1"
+                max="100"
+                value="10"
+                oninput="scaleXSTree({value})"
+              />
+            </div>
+            <div>
+              <label for="ys-scale" class="slider-label"
+                >Y-S: <span id="ys-ratio">10</span></label
+              >
+              <input
+                id="ys-scale"
+                name="ys-scale"
+                min="1"
+                max="100"
+                value="10"
+                oninput="scaleYSTree({value})"
+              />
+            </div>
+            <div>
+              <label for="zs-scale" class="slider-label"
+                >Z-S: <span id="zs-ratio">10</span></label
+              >
+              <input
+                id="zs-scale"
+                name="zs-scale"
+                min="1"
+                max="100"
+                value="10"
+                oninput="scaleZSTree({value})"
+              />
+            </div>
+          </div>
         </div>
 
-        <h3>Rotate-S</h3>
-        <div>
-          <label for="xs-rotate" class="slider-label"
-            >X-S: <span id="xs-angle">0</span></label
-          >
-          <input
-            id="xs-rotate"
-            name="xs-rotate"
-            min="-360"
-            max="360"
-            value="0"
-            oninput="rotateXSTree({value})"
-          />
-        </div>
-        <div>
-          <label for="ys-rotate" class="slider-label"
-            >Y-S: <span id="ys-angle">0</span></label
-          >
-          <input
-            id="ys-rotate"
-            name="ys-rotate"
-            min="-360"
-            max="360"
-            value="0"
-            oninput="rotateYSTree({value})"
-          />
-        </div>
-        <div>
-          <label for="zs-rotate" class="slider-label"
-            >Z-S: <span id="zs-angle">0</span></label
-          >
-          <input
-            id="zs-rotate"
-            name="zs-rotate"
-            min="-360"
-            max="360"
-            value="0"
-            oninput="rotateZSTree({value})"
-          />
-        </div>
-        <h3>Translate-S</h3>
-        <div>
-          <label for="xs-translate" class="slider-label"
-            >X-S: <span id="xs-distance">0</span></label
-          >
-          <input
-            id="xs-translate"
-            name="xs-translate"
-            min="-100"
-            max="100"
-            value="0"
-            oninput="translateXSTree({value})"
-          />
-        </div>
-        <div>
-          <label for="ys-translate" class="slider-label"
-            >Y-S: <span id="ys-distance">0</span></label
-          >
-          <input
-            id="ys-translate"
-            name="ys-translate"
-            min="-100"
-            max="100"
-            value="0"
-            oninput="translateYSTree({value})"
-          />
-        </div>
-        <div>
-          <label for="zs-translate" class="slider-label"
-            >Z-S: <span id="zs-distance">0</span></label
-          >
-          <input
-            id="zs-translate"
-            name="zs-translate"
-            min="-100"
-            max="100"
-            value="0"
-            oninput="translateZSTree({value})"
-          />
-        </div>
-        <h3>Scale-S</h3>
-        <div>
-          <label for="xs-scale" class="slider-label"
-            >X-S: <span id="xs-ratio">10</span></label
-          >
-          <input
-            id="xs-scale"
-            name="xs-scale"
-            min="1"
-            max="100"
-            value="10"
-            oninput="scaleXSTree({value})"
-          />
-        </div>
-        <div>
-          <label for="ys-scale" class="slider-label"
-            >Y-S: <span id="ys-ratio">10</span></label
-          >
-          <input
-            id="ys-scale"
-            name="ys-scale"
-            min="1"
-            max="100"
-            value="10"
-            oninput="scaleYSTree({value})"
-          />
-        </div>
-        <div>
-          <label for="zs-scale" class="slider-label"
-            >Z-S: <span id="zs-ratio">10</span></label
-          >
-          <input
-            id="zs-scale"
-            name="zs-scale"
-            min="1"
-            max="100"
-            value="10"
-            oninput="scaleZSTree({value})"
-          />
-        </div>
         <div class="treecontainer" id="treecontainer">
           Tree: <span id="selectedobject">Nothing</span>
           <div id="tree"></div>

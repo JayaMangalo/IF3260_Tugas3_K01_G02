@@ -4,18 +4,18 @@ function loadPerson() {
 
   body = new Block((origin = [-4, -4, -12.5]), 8, 16, 8, (obj_name = "Body"));
   head = new Block((origin = [-4, 12, -12.5]), 8, 8, 8, (obj_name = "Head"));
-  rightHand = new Block((origin = [4, -6, -12.5]), 4, 18, 8, (obj_name = "Right Hand"));
-  leftHand = new Block((origin = [-8, -6, -12.5]), 4, 18, 8, (obj_name = "Left Hand"));
+  leftHand = new Block((origin = [4, -6, -12.5]), 4, 18, 8, (obj_name = "Left Hand"));
+  rightHand = new Block((origin = [-8, -6, -12.5]), 4, 18, 8, (obj_name = "Right Hand"));
   pelvis = new Block((origin = [-4, -6, -12.5]), 8, 2, 8, (obj_name = "Pelvis"));
-  rightFoot = new Block((origin = [0, -24, -12.5]), 4, 18, 8, (obj_name = "Right Foot"));
-  leftFoot = new Block((origin = [-4, -24, -12.5]), 4, 18, 8, (obj_name = "Left Foot"));
+  leftFoot = new Block((origin = [0, -24, -12.5]), 4, 18, 8, (obj_name = "Left Foot"));
+  rightFoot = new Block((origin = [-4, -24, -12.5]), 4, 18, 8, (obj_name = "Right Foot"));
   
   body.appendChild(head);
-  body.appendChild(rightHand)
   body.appendChild(leftHand)
+  body.appendChild(rightHand)
   body.appendChild(pelvis)
-  pelvis.appendChild(rightFoot)
   pelvis.appendChild(leftFoot)
+  pelvis.appendChild(rightFoot)
 
   shapes.push(body);
 }
