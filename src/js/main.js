@@ -11,17 +11,19 @@ var btn_id = 0;
 var fps = 3;
 var frames = [];
 var isPlaying = false;
+var startFrame = 0;
+var endFrame = 0;
+var currentFrame = 0;
 
 function onLoad() {
   //Initialize the WebGL
   init();
 
   //Real Model
-  loadDragon();
+  // loadDragon();
   // loadTank();
   // loadDog();
-  // loadPerson();
-  // loadDuck();
+  loadPerson();
 
   //Model For Texting Texture
   // loadCube();
@@ -92,6 +94,39 @@ function changeFPS() {
   document.getElementById("fps-value").innerHTML = fps;
 }
 
+function changeFrameRange() {
+  startFrame = Number(document.getElementById("start-frame").value);
+  endFrame = Number(document.getElementById("end-frame").value);
+
+  if (startFrame > endFrame) {
+    startFrame = 0;
+    endFrame = 0;
+    alert("Start frame cannot be greater than end frame");
+    return;
+  }
+  if (startFrame < 0) {
+    startFrame = 0;
+    alert("Start frame cannot be less than 0");
+    return;
+  }
+  if (endFrame >= frames.length) {
+    endFrame = frames.length - 1;
+    alert("End frame cannot be greater than the number of frames counted from zero (" + endFrame + " frames)");
+    return;
+  }
+
+  if (currentFrame < startFrame) {
+    currentFrame = startFrame;
+  }
+  if (currentFrame > endFrame) {
+    currentFrame = endFrame;
+  }
+  if (isPlaying) {
+    isPlaying = false;
+    document.getElementById("play-animation-button").innerHTML = "<img src='./assets/icons/play.svg' type='image/svg+xml' />";
+  }
+}
+
 function playAnimation() {
   var interval = 1000 / fps;
 
@@ -102,9 +137,13 @@ function playAnimation() {
 
   if (!isPlaying) {
     isPlaying = true;
-    document.getElementById("play-animation-button").innerText = "Stop";
+    document.getElementById("play-animation-button").innerHTML = "<img src='./assets/icons/pause.svg' type='image/svg+xml' />"
 
-    let i = 0;
+    let i = startFrame;
+    if (currentFrame != 0) {
+      i = currentFrame;
+    }
+
     let updateFrame = setInterval(function () {
       for (var j = 0; j < TreeArray.length; j++) {
         setCurrentObject(j);
@@ -119,19 +158,34 @@ function playAnimation() {
         transformObjectSubTree();
       }
       i++;
-      if (i == frames.length) {
+      currentFrame = i;
+      if (i == endFrame + 1) {
         // playing infinitely until stop is pressed
-        i = 0;
+        i = startFrame;
+        currentFrame = startFrame;
       }
       if (!isPlaying) {
         clearInterval(updateFrame);
-        i = 0;
+        i = startFrame;
       }
     }, interval);
   } else {
     isPlaying = false;
-    document.getElementById("play-animation-button").innerText = "Play";
+    document.getElementById("play-animation-button").innerHTML = "<img src='./assets/icons/play.svg' type='image/svg+xml' />";
   }
+}
+
+function replayAnimation() {
+  currentFrame = startFrame;
+  playAnimation();
+}
+
+function reverseAnimation() {
+  if (isPlaying) {
+    isPlaying = false;
+    document.getElementById("play-animation-button").innerHTML = "<img src='./assets/icons/play.svg' type='image/svg+xml' />";
+  }
+  frames.reverse();
 }
 
 function redraw() {

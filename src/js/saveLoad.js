@@ -259,6 +259,8 @@ function loadAnimation() {
             });
           }
           frames.push(transform);
+          startFrame = 0;
+          endFrame = frames.length - 1;
         }
       }
     };

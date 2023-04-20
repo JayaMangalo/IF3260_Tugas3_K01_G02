@@ -13,7 +13,7 @@ h2,
 h3,
 h4 {
   margin: 0;
-  padding: 16px 0 8px;
+  padding: 12px 0 4px;
 }
 
 .main-container {
@@ -32,7 +32,7 @@ h4 {
 }
 
 .right-side-bar {
-  width: 45%;
+  width: 35%;
 }
 
 .left-menu {
@@ -54,6 +54,19 @@ h4 {
   padding: 0 0 8px 0;
 }
 
+.animation-button:hover {
+  background-color: rgb(256, 256, 256, 0.4);
+}
+
+.button-row-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
 .texture-container {
   padding: 0 0 8px 0;
 }
@@ -68,13 +81,46 @@ h4 {
   width: 20px;
 }
 
-#save-button,
-#load-button {
+.blue-button {
   width: 48%;
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
   background-color: #0c8ce9;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.relative-w-blue-button {
+  width: fit-content;
+  border: none;
+  border-radius: 4px;
+  background-color: #0c8ce9;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.white-button {
+  padding: 8px 16px;
+  border: solid 1px white;
+  border-radius: 4px;
+  background-color: #2c2c2c;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.white-button:hover {
+  background-color: rgb(256, 256, 256, 0.4);
+}
+
+.animation-button {
+  padding: 4px;
+  border: solid 1px white;
+  border-radius: 4px;
+  background-color: #2c2c2c;
   color: white;
   font-size: 16px;
   cursor: pointer;
@@ -90,7 +136,10 @@ h4 {
   color: white;
   font-size: 16px;
   cursor: pointer;
-  self-align: bottom;
+}
+
+.full-w-white-button:hover {
+  background-color: rgb(256, 256, 256, 0.4);
 }
 
 .slider-label {
@@ -116,14 +165,26 @@ h4 {
   cursor: pointer;
 }
 
-#help-button {
-  display: block;
+#load-play-container {
+  display: flex;
+  flex-direction: row;
   width: 100%;
-  padding: 8px 16px;
+  padding: 16px 0;
+  gap: 8px;
+}
+
+.number-input-container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.small-input-number {
+  width: 40px;
+}
+
+#tree {
   border: solid 1px white;
-  border-radius: 4px;
-  background-color: #2c2c2c;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
+  margin-bottom: 24px;
 }

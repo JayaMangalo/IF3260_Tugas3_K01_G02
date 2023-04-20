@@ -13,17 +13,14 @@
         <div class="left-menu">
           <h1>3D Articulated Model</h1>
 
-          <button
-            id="help-button"
-            onclick="window.open('./help.html','_blank')"
-          >
-            Help
-          </button>
-
           <h2>Save & Load Model</h2>
           <div class="save-container">
-            <button onclick="saveModel()" id="save-button">Save</button>
-            <button onclick="loadModel()" id="load-button">Load</button>
+            <button onclick="saveModel()" id="save-button" class="blue-button">
+              Save
+            </button>
+            <button onclick="loadModel()" id="load-button" class="blue-button">
+              Load
+            </button>
           </div>
           <h2>Texture</h2>
           <div class="texture-container">
@@ -144,14 +141,6 @@
               <label for="animate">Camera Animation</label>
             </div>
           </div>
-
-          <button
-            onclick="clearShapes()"
-            id="clear-button"
-            class="full-w-white-button"
-          >
-            Clear Canvas
-          </button>
         </div>
       </div>
 
@@ -163,35 +152,88 @@
 
       <div class="right-side-bar" id="sidebar">
         <h2>Animation</h2>
-        <div id="save-load-frame-container">
-          <button onclick="saveFrame()" id="save-frame-button">
+        <div id="save-load-frame-container" class="button-row-container">
+          <button
+            onclick="saveFrame()"
+            id="save-frame-button"
+            class="blue-button"
+          >
             Save Frame
           </button>
-          <button onclick="loadFrame()" id="load-frame-button">
+          <button
+            onclick="loadFrame()"
+            id="load-frame-button"
+            class="blue-button"
+          >
             Load Frame
           </button>
         </div>
-        
+
         <div id="load-play-container">
-          <button onclick="playAnimation()" id="play-animation-button">
-            Play
+          <button
+            onclick="playAnimation()"
+            id="play-animation-button"
+            class="animation-button"
+            title="Play Animation"
+          >
+            <img src="./assets/icons/play.svg" type="image/svg+xml" />
           </button>
-          <button onclick="loadAnimation()" id="load-animation-button">
+          <button
+            onclick="replayAnimation()"
+            id="replay-animation-button"
+            class="animation-button"
+            title="Replay Animation"
+          >
+            <img src="./assets/icons/replay.svg" type="image/svg+xml" />
+          </button>
+          <button
+            onclick="reverseAnimation()"
+            id="reverse-animation-button"
+            class="animation-button"
+            title="Reverse Animation"
+          >
+            <img src="./assets/icons/reverse.svg" type="image/svg+xml" />
+          </button>
+          <button
+            onclick="loadAnimation()"
+            id="load-animation-button"
+            class="white-button"
+          >
             Load Animation
           </button>
         </div>
-        <div>
-          <input type="number" value="3" id="fps" />
-          <button onclick="changeFPS()">Change FPS</button>
+        <div class="number-input-container">
+          <label for="fps">FPS </label>
+          <input type="number" value="3" id="fps" class="small-input-number" />
+          <button onclick="changeFPS()" class="relative-w-blue-button">
+            Change
+          </button>
         </div>
-        
-        <h3>
-          Components
-        </h3>
-        <div>
-          <button onclick="addComponent()">Add</button>
-          <button onclick="saveComponent()">Save</button>
-          <button onclick="loadComponent()">Load</button>
+        <div class="number-input-container">
+          <label for="start-frame">Start</label>
+          <input
+            type="number"
+            value="0"
+            id="start-frame"
+            class="small-input-number"
+          />
+          <label for="end-frame">End</label>
+          <input
+            type="number"
+            value="0"
+            id="end-frame"
+            class="small-input-number"
+          />
+          <button onclick="changeFrameRange()" class="relative-w-blue-button">
+            Change
+          </button>
+        </div>
+
+        <h2>Components</h2>
+        <div class="button-row-container">
+          <button onclick="addComponent()" class="blue-button">Add</button>
+          <button onclick="saveComponent()" class="blue-button">Save</button>
+          <button onclick="loadComponent()" class="blue-button">Load</button>
         </div>
 
         <h2>Transform</h2>
@@ -203,6 +245,7 @@
                 >X: <span id="x-angle">0</span></label
               >
               <input
+                type="range"
                 id="x-rotate"
                 name="x-rotate"
                 min="-360"
@@ -216,6 +259,7 @@
                 >Y: <span id="y-angle">0</span></label
               >
               <input
+                type="range"
                 id="y-rotate"
                 name="y-rotate"
                 min="-360"
@@ -229,6 +273,7 @@
                 >Z: <span id="z-angle">0</span></label
               >
               <input
+                type="range"
                 id="z-rotate"
                 name="z-rotate"
                 min="-360"
@@ -243,6 +288,7 @@
                 >X: <span id="x-distance">0</span></label
               >
               <input
+                type="range"
                 id="x-translate"
                 name="x-translate"
                 min="-100"
@@ -256,6 +302,7 @@
                 >Y: <span id="y-distance">0</span></label
               >
               <input
+                type="range"
                 id="y-translate"
                 name="y-translate"
                 min="-100"
@@ -269,6 +316,7 @@
                 >Z: <span id="z-distance">0</span></label
               >
               <input
+                type="range"
                 id="z-translate"
                 name="z-translate"
                 min="-100"
@@ -283,6 +331,7 @@
                 >X: <span id="x-ratio">10</span></label
               >
               <input
+                type="range"
                 id="x-scale"
                 name="x-scale"
                 min="1"
@@ -296,6 +345,7 @@
                 >Y: <span id="y-ratio">10</span></label
               >
               <input
+                type="range"
                 id="y-scale"
                 name="y-scale"
                 min="1"
@@ -309,6 +359,7 @@
                 >Z: <span id="z-ratio">10</span></label
               >
               <input
+                type="range"
                 id="z-scale"
                 name="z-scale"
                 min="1"
@@ -318,7 +369,7 @@
               />
             </div>
           </div>
-          
+
           <div class="transformS-inputs">
             <h3>Rotate-S</h3>
             <div>
@@ -326,6 +377,7 @@
                 >X-S: <span id="xs-angle">0</span></label
               >
               <input
+                type="range"
                 id="xs-rotate"
                 name="xs-rotate"
                 min="-360"
@@ -339,6 +391,7 @@
                 >Y-S: <span id="ys-angle">0</span></label
               >
               <input
+                type="range"
                 id="ys-rotate"
                 name="ys-rotate"
                 min="-360"
@@ -352,6 +405,7 @@
                 >Z-S: <span id="zs-angle">0</span></label
               >
               <input
+                type="range"
                 id="zs-rotate"
                 name="zs-rotate"
                 min="-360"
@@ -366,6 +420,7 @@
                 >X-S: <span id="xs-distance">0</span></label
               >
               <input
+                type="range"
                 id="xs-translate"
                 name="xs-translate"
                 min="-100"
@@ -379,6 +434,7 @@
                 >Y-S: <span id="ys-distance">0</span></label
               >
               <input
+                type="range"
                 id="ys-translate"
                 name="ys-translate"
                 min="-100"
@@ -392,6 +448,7 @@
                 >Z-S: <span id="zs-distance">0</span></label
               >
               <input
+                type="range"
                 id="zs-translate"
                 name="zs-translate"
                 min="-100"
@@ -406,6 +463,7 @@
                 >X-S: <span id="xs-ratio">10</span></label
               >
               <input
+                type="range"
                 id="xs-scale"
                 name="xs-scale"
                 min="1"
@@ -419,6 +477,7 @@
                 >Y-S: <span id="ys-ratio">10</span></label
               >
               <input
+                type="range"
                 id="ys-scale"
                 name="ys-scale"
                 min="1"
@@ -432,6 +491,7 @@
                 >Z-S: <span id="zs-ratio">10</span></label
               >
               <input
+                type="range"
                 id="zs-scale"
                 name="zs-scale"
                 min="1"
@@ -443,8 +503,9 @@
           </div>
         </div>
 
+        <h2>Component Tree</h2>
         <div class="treecontainer" id="treecontainer">
-          Tree: <span id="selectedobject">Nothing</span>
+          Selected: <span id="selectedobject">Nothing</span>
           <div id="tree"></div>
         </div>
       </div>
@@ -452,7 +513,6 @@
 
     <script src="js/init.js"></script>
     <script src="js/utils.js"></script>
-    <!-- <script src="loadAndSave.js"></script> -->
     <script src="js/models/object.js"></script>
     <script src="js/models/block.js"></script>
     <script src="js/models/triangularPrism.js"></script>
