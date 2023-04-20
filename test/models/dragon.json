@@ -1,0 +1,287 @@
+{
+  "type": "model",
+  "data": [
+    {
+      "type": "block",
+      "name": "Body",
+      "origin": [-20, 0, -12.5],
+      "length": 25,
+      "height": 15,
+      "width": 25,
+      "children": [
+        {
+          "type": "block",
+          "name": "LeftNeck",
+          "origin": [5, 3.5, -11.5],
+          "length": 7,
+          "height": 22,
+          "width": 7,
+          "children": [
+            {
+              "type": "block",
+              "name": "LeftHead",
+              "origin": [4.25, 18.5, -11.75],
+              "length": 15,
+              "height": 6,
+              "width": 7.5,
+              "children": [
+                {
+                  "type": "block",
+                  "name": "LeftMaw",
+                  "origin": [9.25, 16.5, -11],
+                  "length": 9,
+                  "height": 2,
+                  "width": 6,
+                  "children": [
+                    {
+                      "type": "block",
+                      "name": "LeftFireball1",
+                      "origin": [9.15, 20.4, -8.6],
+                      "length": 1.2,
+                      "height": 1.2,
+                      "width": 1.2,
+                      "children": [
+                        {
+                          "type": "block",
+                          "name": "LeftFireball2",
+                          "origin": [9.2, 20.45, -8.55],
+                          "length": 1.1,
+                          "height": 1.1,
+                          "width": 1.1,
+                          "children": [
+                            {
+                              "type": "block",
+                              "name": "LeftFireball3",
+                              "origin": [9.25, 20.5, -8.5],
+                              "length": 1,
+                              "height": 1,
+                              "width": 1,
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "block",
+          "name": "MiddleNeck",
+          "origin": [5, 3.5, -3.5],
+          "length": 7,
+          "height": 22,
+          "width": 7,
+          "children": [
+            {
+              "type": "block",
+              "name": "MiddleHead",
+              "origin": [4.25, 18.5, -3.75],
+              "length": 15,
+              "height": 6,
+              "width": 7.5,
+              "children": [
+                {
+                  "type": "block",
+                  "name": "MiddleMaw",
+                  "origin": [9.25, 16.5, -3],
+                  "length": 9,
+                  "height": 2,
+                  "width": 6,
+                  "children": [
+                    {
+                      "type": "block",
+                      "name": "MiddleFireball1",
+                      "origin": [9.15, 20.4, -0.6],
+                      "length": 1.2,
+                      "height": 1.2,
+                      "width": 1.2,
+                      "children": [
+                        {
+                          "type": "block",
+                          "name": "MiddleFireball3",
+                          "origin": [9.2, 20.45, -0.55],
+                          "length": 1.1,
+                          "height": 1.1,
+                          "width": 1.1,
+                          "children": [
+                            {
+                              "type": "block",
+                              "name": "MiddleFireball2",
+                              "origin": [9.25, 20.5, -0.5],
+                              "length": 1,
+                              "height": 1,
+                              "width": 1,
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "block",
+          "name": "RightNeck",
+          "origin": [5, 3.5, 4.5],
+          "length": 7,
+          "height": 22,
+          "width": 7,
+          "children": [
+            {
+              "type": "block",
+              "name": "RightHead",
+              "origin": [4.25, 18.5, 4.25],
+              "length": 15,
+              "height": 6,
+              "width": 7.5,
+              "children": [
+                {
+                  "type": "block",
+                  "name": "RightMaw",
+                  "origin": [9.25, 16.5, 5],
+                  "length": 9,
+                  "height": 2,
+                  "width": 6,
+                  "children": [
+                    {
+                      "type": "block",
+                      "name": "RightFireball1",
+                      "origin": [9.15, 20.4, 7.4],
+                      "length": 1.2,
+                      "height": 1.2,
+                      "width": 1.2,
+                      "children": [
+                        {
+                          "type": "block",
+                          "name": "RightFireball2",
+                          "origin": [9.2, 20.45, 7.45],
+                          "length": 1.1,
+                          "height": 1.1,
+                          "width": 1.1,
+                          "children": [
+                            {
+                              "type": "block",
+                              "name": "RightFireball3",
+                              "origin": [9.25, 20.5, 7.5],
+                              "length": 1,
+                              "height": 1,
+                              "width": 1,
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "block",
+          "name": "LeftMainWing",
+          "origin": [-15.5, 14.75, -21.5],
+          "length": 15,
+          "height": 0.75,
+          "width": 9,
+          "children": []
+        },
+        {
+          "type": "block",
+          "name": "RightMainWing",
+          "origin": [-15.5, 14.75, 12.5],
+          "length": 15,
+          "height": 0.75,
+          "width": 9,
+          "children": []
+        },
+        {
+          "type": "block",
+          "name": "Tail1",
+          "origin": [-28, 7, -10],
+          "length": 8,
+          "height": 7,
+          "width": 20,
+          "children": [
+            {
+              "type": "block",
+              "name": "Tail2",
+              "origin": [-35, 6.75, -8],
+              "length": 7,
+              "height": 5,
+              "width": 16,
+              "children": [
+                {
+                  "type": "block",
+                  "name": "Tail3",
+                  "origin": [-41, 6.5, -6.5],
+                  "length": 6,
+                  "height": 4.5,
+                  "width": 13,
+                  "children": [
+                    {
+                      "type": "block",
+                      "name": "Tail4",
+                      "origin": [-46, 6.25, -5.5],
+                      "length": 5,
+                      "height": 4,
+                      "width": 11,
+                      "children": [
+                        {
+                          "type": "block",
+                          "name": "Tail5",
+                          "origin": [-52, 6.5, -6.5],
+                          "length": 6,
+                          "height": 4.5,
+                          "width": 13,
+                          "children": [
+                            {
+                              "type": "block",
+                              "name": "Tail6",
+                              "origin": [-57, 6.25, -2.5],
+                              "length": 5,
+                              "height": 4,
+                              "width": 5,
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "block",
+          "name": "LeftLeg",
+          "origin": [-12.5, -9, -14.5],
+          "length": 10,
+          "height": 18,
+          "width": 7,
+          "children": []
+        },
+        {
+          "type": "block",
+          "name": "RightLeg",
+          "origin": [-12.5, -9, 7.5],
+          "length": 10,
+          "height": 18,
+          "width": 7,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

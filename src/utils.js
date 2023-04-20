@@ -266,7 +266,7 @@ function multiply(a, b) {
 }
 function multiplyMatrix4AndVec4(matrix, vec4) {
   if (matrix.length !== 16 || vec4.length !== 4) {
-    return [0,0,0,0]
+    return [0, 0, 0, 0];
   }
 
   const result = [0, 0, 0, 0];
@@ -303,14 +303,9 @@ function zRotation(radian) {
 }
 
 function scaling(sx, sy, sz) {
-  return [
-    sx, 0,  0,  0,
-    0, sy,  0,  0,
-    0,  0, sz,  0,
-    0,  0,  0,  1,
-  ];
+  return [sx, 0, 0, 0, 0, sy, 0, 0, 0, 0, sz, 0, 0, 0, 0, 1];
 }
-function translation(tx, ty, tz) { 
+function translation(tx, ty, tz) {
   return [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, tx, ty, tz, 1];
 }
 
@@ -318,49 +313,52 @@ function translate(matrix, tx, ty, tz) {
   return multiply(matrix, translation(tx, ty, tz));
 }
 
-function xRotate(matrix, angle){
-  return multiply(matrix,xRotation(angle))}
+function xRotate(matrix, angle) {
+  return multiply(matrix, xRotation(angle));
+}
 
-function yRotate(matrix, angle){
-  return multiply(matrix,yRotation(angle))}
+function yRotate(matrix, angle) {
+  return multiply(matrix, yRotation(angle));
+}
 
-function zRotate(matrix, angle){
-  return multiply(matrix,zRotation(angle))}
+function zRotate(matrix, angle) {
+  return multiply(matrix, zRotation(angle));
+}
 
 function scale(matrix, tx, ty, tz) {
   return multiply(matrix, scaling(tx, ty, tz));
 }
 //|-----------------BASIC TRANSFORMATION END-----------------------|
 //|-----------------ADVANCED TRANSFORMATION START-----------------------|
-function xRotateonPoint(angle, center){
-  var translateToOrigin = translation(-center[0],-center[1],-center[2]);
+function xRotateonPoint(angle, center) {
+  var translateToOrigin = translation(-center[0], -center[1], -center[2]);
   var rotMatrix = xRotation(angle);
-  var translateBack = translation(center[0],center[1],center[2]);
+  var translateBack = translation(center[0], center[1], center[2]);
 
-  return multiply(translateBack,multiply(rotMatrix,translateToOrigin));
+  return multiply(translateBack, multiply(rotMatrix, translateToOrigin));
 }
-function yRotateonPoint(angle, center){
-  var translateToOrigin = translation(-center[0],-center[1],-center[2]);
+function yRotateonPoint(angle, center) {
+  var translateToOrigin = translation(-center[0], -center[1], -center[2]);
   var rotMatrix = yRotation(angle);
-  var translateBack = translation(center[0],center[1],center[2]);
+  var translateBack = translation(center[0], center[1], center[2]);
 
-  return multiply(translateBack,multiply(rotMatrix,translateToOrigin));
+  return multiply(translateBack, multiply(rotMatrix, translateToOrigin));
 }
 
-function zRotateonPoint(angle, center){
-  var translateToOrigin = translation(-center[0],-center[1],-center[2]);
+function zRotateonPoint(angle, center) {
+  var translateToOrigin = translation(-center[0], -center[1], -center[2]);
   var rotMatrix = zRotation(angle);
-  var translateBack = translation(center[0],center[1],center[2]);
+  var translateBack = translation(center[0], center[1], center[2]);
 
-  return multiply(translateBack,multiply(rotMatrix,translateToOrigin));
+  return multiply(translateBack, multiply(rotMatrix, translateToOrigin));
 }
 
-function scaleOnPoint(sx,sy,sz,center){
-  var translateToOrigin = translation(-center[0],-center[1],-center[2]);
-  var scalingMatrix = scaling(sx,sy,sz);
-  var translateBack = translation(center[0],center[1],center[2]);
+function scaleOnPoint(sx, sy, sz, center) {
+  var translateToOrigin = translation(-center[0], -center[1], -center[2]);
+  var scalingMatrix = scaling(sx, sy, sz);
+  var translateBack = translation(center[0], center[1], center[2]);
 
-  return multiply(translateBack,multiply(scalingMatrix,translateToOrigin));
+  return multiply(translateBack, multiply(scalingMatrix, translateToOrigin));
 }
 //|-----------------ADVANCED TRANSFORMATION END-----------------------|
 function inverse(m) {
@@ -582,16 +580,26 @@ function calcNormalVector(v1, v2, v3) {
 
 function transpose(matrix) {
   return [
-    matrix[0], matrix[4], matrix[8], matrix[12],
-    matrix[1], matrix[5], matrix[9], matrix[13],
-    matrix[2], matrix[6], matrix[10], matrix[14],
-    matrix[3], matrix[7], matrix[11], matrix[15]
-  ]
-
+    matrix[0],
+    matrix[4],
+    matrix[8],
+    matrix[12],
+    matrix[1],
+    matrix[5],
+    matrix[9],
+    matrix[13],
+    matrix[2],
+    matrix[6],
+    matrix[10],
+    matrix[14],
+    matrix[3],
+    matrix[7],
+    matrix[11],
+    matrix[15],
+  ];
 }
 
-
-function calculateTangetSpace(p1,p2,p3){
+function calculateTangetSpace(p1, p2, p3) {
   // p1 -> _______ <- p2
   //      |      /
   //      |     /
@@ -602,15 +610,15 @@ function calculateTangetSpace(p1,p2,p3){
   //      |/
   // p3 --^
 
-  let v1 = [p2[0]-p1[0],p2[1]-p1[1],p2[2]-p1[2]]
-  let v2 = [p3[0]-p1[0],p3[1]-p1[1],p3[2]-p1[2]]
+  let v1 = [p2[0] - p1[0], p2[1] - p1[1], p2[2] - p1[2]];
+  let v2 = [p3[0] - p1[0], p3[1] - p1[1], p3[2] - p1[2]];
 
-  let normal = normalize(crossProduct(v1,v2))
-  let tangent = normalize(v1)
-  let bitangent = normalize(v2)
+  let normal = normalize(crossProduct(v1, v2));
+  let tangent = normalize(v1);
+  let bitangent = normalize(v2);
 
-  let result = normal.concat(tangent).concat(bitangent)
-  return result
+  let result = normal.concat(tangent).concat(bitangent);
+  return result;
 }
 
 function isPowerOf2(value) {

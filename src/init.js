@@ -347,14 +347,14 @@ function init() {
   //Load image from texture, bumptexture, pox-x, neg-x, pos-y, neg-y, pos-z, neg-z
   loadImages(
     [
-      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/textures/dragonscale.jpg",
-      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/textures/bump.png",
-      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/textures/pos-x.jpg",
-      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/textures/neg-x.jpg",
-      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/textures/pos-y.jpg",
-      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/textures/neg-y.jpg",
-      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/textures/pos-z.jpg",
-      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/textures/neg-z.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/dragonscale.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/bump.png",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/pos-x.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/neg-x.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/pos-y.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/neg-y.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/pos-z.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/neg-z.jpg",
     ],
     renderTexture
   );
@@ -410,9 +410,21 @@ function view() {
   gl.uniformMatrix4fv(matWorldLocation, gl.FALSE, worldMatrix);
   gl.uniformMatrix4fv(matViewLocation, gl.FALSE, viewMatrix);
   gl.uniformMatrix4fv(matProjLocation, gl.FALSE, projMatrix);
-  gl.uniformMatrix4fv(matViewModelLocation,gl.FALSE,multiply(viewMatrix, worldMatrix));
-  gl.uniformMatrix4fv(matNormalLocation,gl.FALSE,transpose(inverse(multiply(viewMatrix, worldMatrix))));
-  gl.uniform3fv(cameraPosisionLocation, [cameraMatrix[12],cameraMatrix[13],cameraMatrix[14],]);
+  gl.uniformMatrix4fv(
+    matViewModelLocation,
+    gl.FALSE,
+    multiply(viewMatrix, worldMatrix)
+  );
+  gl.uniformMatrix4fv(
+    matNormalLocation,
+    gl.FALSE,
+    transpose(inverse(multiply(viewMatrix, worldMatrix)))
+  );
+  gl.uniform3fv(cameraPosisionLocation, [
+    cameraMatrix[12],
+    cameraMatrix[13],
+    cameraMatrix[14],
+  ]);
   gl.uniform1i(textureLocation, 0);
   gl.uniform1i(textureLocationBump, 1);
   gl.uniform1i(textureLocationEnvironment, 2);

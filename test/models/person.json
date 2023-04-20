@@ -1,0 +1,70 @@
+{
+  "type": "model",
+  "data": [
+    {
+      "type": "block",
+      "name": "Body",
+      "origin": [-4, -4, -12.5],
+      "length": 8,
+      "height": 16,
+      "width": 8,
+      "children": [
+        {
+          "type": "block",
+          "name": "Head",
+          "origin": [-4, 12, -12.5],
+          "length": 8,
+          "height": 8,
+          "width": 8,
+          "children": []
+        },
+        {
+          "type": "block",
+          "name": "Left Hand",
+          "origin": [4, -6, -12.5],
+          "length": 4,
+          "height": 18,
+          "width": 8,
+          "children": []
+        },
+        {
+          "type": "block",
+          "name": "Right Hand",
+          "origin": [-8, -6, -12.5],
+          "length": 4,
+          "height": 18,
+          "width": 8,
+          "children": []
+        },
+        {
+          "type": "block",
+          "name": "Pelvis",
+          "origin": [-4, -6, -12.5],
+          "length": 8,
+          "height": 2,
+          "width": 8,
+          "children": [
+            {
+              "type": "block",
+              "name": "Left Foot",
+              "origin": [0, -24, -12.5],
+              "length": 4,
+              "height": 18,
+              "width": 8,
+              "children": []
+            },
+            {
+              "type": "block",
+              "name": "Right Foot",
+              "origin": [-4, -24, -12.5],
+              "length": 4,
+              "height": 18,
+              "width": 8,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -23,7 +23,8 @@ function onLoad() {
   // loadDragon();
   // loadTank();
   // loadDog();
-  loadPerson();
+  // loadPerson();
+  // loadDuck();
 
   //Model For Texting Texture
   // loadCube();
@@ -63,8 +64,6 @@ function preOrder(node, depth) {
 
 function addListeners() {
   buttonlist = document.getElementById("tree").querySelectorAll("button");
-  // console.log(buttonlist);
-  // console.log(TreeArray);
 
   for (let index = 0; index < buttonlist.length; index++) {
     buttonlist[index].addEventListener("click", function () {
@@ -76,11 +75,9 @@ function addListeners() {
 function setCurrentObject(index) {
   selectedObject = TreeArray[index];
   document.getElementById("selectedobject").innerText = selectedObject.name;
-  // console.log(selectedObject);
 }
 
 function traverseTree() {
-  console.log(shapes);
   document.getElementById("tree").innerHTML = "";
   shapes.forEach(function (shape) {
     preOrder(shape, 0);
@@ -90,11 +87,23 @@ function traverseTree() {
 }
 
 function changeFPS() {
+  if (isPlaying) {
+    isPlaying = false;
+    document.getElementById("play-animation-button").innerHTML =
+      "<img src='./assets/icons/play.svg' type='image/svg+xml' />";
+  }
+
   fps = document.getElementById("fps").value;
   document.getElementById("fps-value").innerHTML = fps;
 }
 
 function changeFrameRange() {
+  if (isPlaying) {
+    isPlaying = false;
+    document.getElementById("play-animation-button").innerHTML =
+      "<img src='./assets/icons/play.svg' type='image/svg+xml' />";
+  }
+
   startFrame = Number(document.getElementById("start-frame").value);
   endFrame = Number(document.getElementById("end-frame").value);
 
@@ -111,7 +120,11 @@ function changeFrameRange() {
   }
   if (endFrame >= frames.length) {
     endFrame = frames.length - 1;
-    alert("End frame cannot be greater than the number of frames counted from zero (" + endFrame + " frames)");
+    alert(
+      "End frame cannot be greater than the number of frames counted from zero (" +
+        endFrame +
+        " frames)"
+    );
     return;
   }
 
@@ -120,10 +133,6 @@ function changeFrameRange() {
   }
   if (currentFrame > endFrame) {
     currentFrame = endFrame;
-  }
-  if (isPlaying) {
-    isPlaying = false;
-    document.getElementById("play-animation-button").innerHTML = "<img src='./assets/icons/play.svg' type='image/svg+xml' />";
   }
 }
 
@@ -137,7 +146,8 @@ function playAnimation() {
 
   if (!isPlaying) {
     isPlaying = true;
-    document.getElementById("play-animation-button").innerHTML = "<img src='./assets/icons/pause.svg' type='image/svg+xml' />"
+    document.getElementById("play-animation-button").innerHTML =
+      "<img src='./assets/icons/pause.svg' type='image/svg+xml' />";
 
     let i = startFrame;
     if (currentFrame != 0) {
@@ -171,7 +181,8 @@ function playAnimation() {
     }, interval);
   } else {
     isPlaying = false;
-    document.getElementById("play-animation-button").innerHTML = "<img src='./assets/icons/play.svg' type='image/svg+xml' />";
+    document.getElementById("play-animation-button").innerHTML =
+      "<img src='./assets/icons/play.svg' type='image/svg+xml' />";
   }
 }
 
@@ -183,7 +194,8 @@ function replayAnimation() {
 function reverseAnimation() {
   if (isPlaying) {
     isPlaying = false;
-    document.getElementById("play-animation-button").innerHTML = "<img src='./assets/icons/play.svg' type='image/svg+xml' />";
+    document.getElementById("play-animation-button").innerHTML =
+      "<img src='./assets/icons/play.svg' type='image/svg+xml' />";
   }
   frames.reverse();
 }
@@ -218,7 +230,6 @@ function redraw() {
       requestAnimationFrame(loop);
     }
   };
-  // console.log(shapes);
   requestAnimationFrame(loop);
 }
 

@@ -1,0 +1,93 @@
+{
+  "type": "model",
+  "data": [
+    {
+      "type": "block",
+      "name": "Body",
+      "origin": [-10, -10, -10],
+      "length": 25,
+      "height": 15,
+      "width": 20,
+      "children": [
+        {
+          "type": "block",
+          "name": "Neck",
+          "origin": [12, -5, -2.5],
+          "length": 5,
+          "height": 20,
+          "width": 5,
+          "children": [
+            {
+              "type": "block",
+              "name": "Head",
+              "origin": [11, 15, -4],
+              "length": 10,
+              "height": 7,
+              "width": 8,
+              "children": [
+                {
+                  "type": "triangularPrism",
+                  "name": "Beak",
+                  "origin": [21, 15, -2],
+                  "length": 3,
+                  "height": 3,
+                  "width": 4,
+                  "removed_batang": 2,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "triangularPrism",
+          "name": "Tail",
+          "origin": [-23, -10, -10],
+          "length": 13,
+          "height": 15,
+          "width": 20,
+          "removed_batang": 5,
+          "children": []
+        },
+        {
+          "type": "triangularPrism",
+          "name": "Right Wing",
+          "origin": [-3, -8, 10],
+          "length": 18,
+          "height": 13,
+          "width": 2,
+          "removed_batang": 5,
+          "children": []
+        },
+        {
+          "type": "triangularPrism",
+          "name": "Left Wing",
+          "origin": [-3, -8, -12],
+          "length": 18,
+          "height": 13,
+          "width": 2,
+          "removed_batang": 5,
+          "children": []
+        },
+        {
+          "type": "block",
+          "name": "Right Foot",
+          "origin": [0, -25, 2],
+          "length": 3,
+          "height": 15,
+          "width": 3,
+          "children": []
+        },
+        {
+          "type": "block",
+          "name": "Left Foot",
+          "origin": [0, -25, -6],
+          "length": 3,
+          "height": 15,
+          "width": 3,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

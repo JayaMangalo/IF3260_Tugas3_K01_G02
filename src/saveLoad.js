@@ -140,11 +140,11 @@ function loadComponent() {
 }
 
 function modify(obj, newObj) {
-  Object.keys(obj).forEach(function(key) {
+  Object.keys(obj).forEach(function (key) {
     delete obj[key];
   });
 
-  Object.keys(newObj).forEach(function(key) {
+  Object.keys(newObj).forEach(function (key) {
     obj[key] = newObj[key];
   });
 }
@@ -206,7 +206,6 @@ function loadFrame() {
 
         transformObjectSubTree();
         transformObject();
-
       }
     };
   };
