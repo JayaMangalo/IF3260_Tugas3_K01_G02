@@ -18,8 +18,9 @@ function onLoad() {
 
   //Real Model
   // loadEXPERIMENT();
-  loadTank();
-  // loadDog();
+  // loadTank();
+  loadDog();
+  // loadPerson();
 
   //Model For Texting Texture
   // loadCube();
@@ -27,10 +28,10 @@ function onLoad() {
   traverseTree(shapes);
   redraw();
 
-  document.getElementById("camera-angle-x").value = 0; //for testing purposes, remove later
-  document.getElementById("camera-angle-y").value = 90;
-  changeAngleX();
-  changeAngleY();
+  // document.getElementById("camera-angle-x").value = 0; //for testing purposes, remove later
+  // document.getElementById("camera-angle-y").value = 90;
+  // changeAngleX();
+  // changeAngleY();
 }
 
 function preOrder(node, depth) {
@@ -59,6 +60,8 @@ function preOrder(node, depth) {
 
 function addListeners() {
   buttonlist = document.getElementById("tree").querySelectorAll("button");
+  console.log(buttonlist);
+  console.log(TreeArray);
 
   for (let index = 0; index < buttonlist.length; index++) {
     buttonlist[index].addEventListener("click", function () {
@@ -70,9 +73,11 @@ function addListeners() {
 function setCurrentObject(index) {
   selectedObject = TreeArray[index];
   document.getElementById("selectedobject").innerText = selectedObject.name;
+  // console.log(selectedObject);
 }
 
 function traverseTree() {
+  console.log(shapes);
   document.getElementById("tree").innerHTML = "";
   shapes.forEach(function (shape) {
     preOrder(shape, 0);
@@ -81,7 +86,7 @@ function traverseTree() {
   setCurrentObject(0);
 }
 
-function changeFPS(){
+function changeFPS() {
   fps = document.getElementById("fps").value;
   document.getElementById("fps-value").innerHTML = fps;
 }
@@ -154,6 +159,7 @@ function redraw() {
       requestAnimationFrame(loop);
     }
   };
+  console.log(shapes);
   requestAnimationFrame(loop);
 }
 

@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/main.css" />
-    <title>3D Hollow Object</title>
+    <title>3D Articulated Model</title>
   </head>
 
   <body>
     <div class="main-container">
       <div class="left-side-bar">
         <div class="left-menu">
-          <h1>3D Hollow Object</h1>
+          <h1>3D Articulated Model</h1>
 
           <button
             id="help-button"
@@ -20,122 +20,136 @@
             Help
           </button>
 
-          <h2>Save & Load</h2>
+          <h2>Save & Load Model</h2>
           <div class="save-container">
             <button onclick="saveModel()" id="save-button">Save</button>
             <button onclick="loadModel()" id="load-button">Load</button>
           </div>
-          <div>
-            <button onclick="loadCustomTexture()" id="change-texture">Load Custom Texture</button>
-          </div>
-          <div>
-            <label for="texture">Choose Texture:</label>
-            <select name="texture" id="texture" onchange="changeTexture()">
-              <option value="custom">Custom Texture</option>
-              <option value="env">Environment Texture</option>
-              <option value="bump">Bump Texture</option>
-            </select>
-          </div>
-
-          <div class="view-config-container">
-            <div class="camera-settings">
-              <h2>Camera Settings</h2>
-
-              <div class="sliders-container">
-                <label for="camera-radius" class="slider-label"
-                  >Camera Radius</label
-                >
-                <input
-                  type="range"
-                  id="camera-radius"
-                  name="camera-radius"
-                  min="0"
-                  max="100"
-                  value="50"
-                  oninput="changeRadius()"
-                />
-                <span id="radius-value">50</span>
-                <label for="camera-angle" class="slider-label"
-                  >Camera Angle</label
-                >
-                <div>
-                  <span>X-axis</span>
-                  <input
-                    type="range"
-                    id="camera-angle-x"
-                    name="camera-angle-x"
-                    min="-90"
-                    max="90"
-                    value="0"
-                    oninput="changeAngleX()"
-                  />
-                  <span id="angle-value-x">0</span>
-                </div>
-                <div>
-                  <span>Y-axis</span>
-                  <input
-                    type="range"
-                    id="camera-angle-y"
-                    name="camera-angle-y"
-                    min="-360"
-                    max="360"
-                    value="0"
-                    oninput="changeAngleY()"
-                  />
-                  <span id="angle-value-y">0</span>
-                </div>
-                <div>
-                  <span>Z-axis</span>
-                  <input
-                    type="range"
-                    id="camera-angle-z"
-                    name="camera-angle-z"
-                    min="-90"
-                    max="90"
-                    value="0"
-                    oninput="changeAngleZ()"
-                  />
-                  <span id="angle-value-z">0</span>
-                </div>
-              </div>
-
-              <label for="projection-mode" class="slider-label"
-                >Projection Mode</label
-              >
-              <select
-                name="projection-mode"
-                id="projection-mode"
-                onchange="changeProjection()"
-              >
-                <option value="orthographic">Orthographic</option>
-                <option value="oblique">Oblique</option>
-                <option value="perspective">Perspective</option>
+          <h2>Texture</h2>
+          <div class="texture-container">
+            <div>
+              <label for="texture">Texture Mode</label>
+              <select name="texture" id="texture" onchange="changeTexture()">
+                <option value="custom">Custom Texture</option>
+                <option value="env">Environment Texture</option>
+                <option value="bump">Bump Texture</option>
               </select>
-
-              <button id="reset-button" onclick="resetCamera()">
-                Reset Camera Settings
+            </div>
+            <div>
+              <button
+                onclick="loadCustomTexture()"
+                id="change-texture"
+                class="full-w-blue-button"
+              >
+                Load Custom Texture
               </button>
-
-              <div class="checkboxes-container">
-                <input
-                  type="checkbox"
-                  name="animate"
-                  id="toggleAnimation"
-                  onchange="toggleAnimation()"
-                />
-                <label for="animate">Animate</label>
-                <input
-                  type="checkbox"
-                  name="toggleShadder"
-                  id="toggleShadder"
-                  onchange="toggleShadder()"
-                />
-                <label for="toggleShadder">Toggle Shadder</label>
-              </div>
             </div>
           </div>
 
-          <button onclick="clearShapes()" id="clear-button">
+          <h2>Camera Settings</h2>
+          <div class="sliders-container">
+            <label for="camera-radius" class="slider-label"
+              >Camera Radius</label
+            >
+            <input
+              type="range"
+              id="camera-radius"
+              name="camera-radius"
+              min="0"
+              max="100"
+              value="50"
+              oninput="changeRadius()"
+            />
+            <span id="radius-value">50</span>
+            <label for="camera-angle" class="slider-label">Camera Angle</label>
+            <div>
+              <span>X-axis</span>
+              <input
+                type="range"
+                id="camera-angle-x"
+                name="camera-angle-x"
+                min="-90"
+                max="90"
+                value="0"
+                oninput="changeAngleX()"
+              />
+              <span id="angle-value-x">0</span>
+            </div>
+            <div>
+              <span>Y-axis</span>
+              <input
+                type="range"
+                id="camera-angle-y"
+                name="camera-angle-y"
+                min="-360"
+                max="360"
+                value="0"
+                oninput="changeAngleY()"
+              />
+              <span id="angle-value-y">0</span>
+            </div>
+            <div>
+              <span>Z-axis</span>
+              <input
+                type="range"
+                id="camera-angle-z"
+                name="camera-angle-z"
+                min="-90"
+                max="90"
+                value="0"
+                oninput="changeAngleZ()"
+              />
+              <span id="angle-value-z">0</span>
+            </div>
+          </div>
+
+          <label for="projection-mode" class="slider-label"
+            >Projection Mode</label
+          >
+          <select
+            name="projection-mode"
+            id="projection-mode"
+            onchange="changeProjection()"
+          >
+            <option value="orthographic">Orthographic</option>
+            <option value="oblique">Oblique</option>
+            <option value="perspective">Perspective</option>
+          </select>
+
+          <button
+            id="reset-button"
+            class="full-w-blue-button"
+            onclick="resetCamera()"
+          >
+            Reset Camera Settings
+          </button>
+
+          <div class="checkboxes-container">
+            <div>
+              <input
+                type="checkbox"
+                name="toggleShadder"
+                id="toggleShadder"
+                onchange="toggleShadder()"
+              />
+              <label for="toggleShadder">Toggle Shadder</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="animate"
+                id="toggleAnimation"
+                onchange="toggleAnimation()"
+              />
+              <label for="animate">Camera Animation</label>
+            </div>
+          </div>
+
+          <button
+            onclick="clearShapes()"
+            id="clear-button"
+            class="full-w-white-button"
+          >
             Clear Canvas
           </button>
         </div>
@@ -148,8 +162,7 @@
       </div>
 
       <div class="right-side-bar" id="sidebar">
-        <h2>Transform</h2>
-
+        <h2>Animation</h2>
         <div id="save-load-frame-container">
           <button onclick="saveFrame()" id="save-frame-button">
             Save Frame
@@ -158,7 +171,7 @@
             Load Frame
           </button>
         </div>
-
+        
         <div id="load-play-container">
           <button onclick="playAnimation()" id="play-animation-button">
             Play
@@ -168,10 +181,20 @@
           </button>
         </div>
         <div>
-          <input type="number" value="3" id="fps">
+          <input type="number" value="3" id="fps" />
           <button onclick="changeFPS()">Change FPS</button>
         </div>
+        
+        <h3>
+          Components
+        </h3>
+        <div>
+          <button onclick="addComponent()">Add</button>
+          <button onclick="saveComponent()">Save</button>
+          <button onclick="loadComponent()">Load</button>
+        </div>
 
+        <h2>Transform</h2>
         <h3>Rotate</h3>
         <div>
           <label for="x-rotate" class="slider-label"
@@ -292,6 +315,127 @@
             oninput="scaleZ({value})"
           />
         </div>
+
+        <h3>Rotate-S</h3>
+        <div>
+          <label for="xs-rotate" class="slider-label"
+            >X-S: <span id="xs-angle">0</span></label
+          >
+          <input
+            id="xs-rotate"
+            name="xs-rotate"
+            min="-360"
+            max="360"
+            value="0"
+            oninput="rotateXSTree({value})"
+          />
+        </div>
+        <div>
+          <label for="ys-rotate" class="slider-label"
+            >Y-S: <span id="ys-angle">0</span></label
+          >
+          <input
+            id="ys-rotate"
+            name="ys-rotate"
+            min="-360"
+            max="360"
+            value="0"
+            oninput="rotateYSTree({value})"
+          />
+        </div>
+        <div>
+          <label for="zs-rotate" class="slider-label"
+            >Z-S: <span id="zs-angle">0</span></label
+          >
+          <input
+            id="zs-rotate"
+            name="zs-rotate"
+            min="-360"
+            max="360"
+            value="0"
+            oninput="rotateZSTree({value})"
+          />
+        </div>
+        <h3>Translate-S</h3>
+        <div>
+          <label for="xs-translate" class="slider-label"
+            >X-S: <span id="xs-distance">0</span></label
+          >
+          <input
+            id="xs-translate"
+            name="xs-translate"
+            min="-100"
+            max="100"
+            value="0"
+            oninput="translateXSTree({value})"
+          />
+        </div>
+        <div>
+          <label for="ys-translate" class="slider-label"
+            >Y-S: <span id="ys-distance">0</span></label
+          >
+          <input
+            id="ys-translate"
+            name="ys-translate"
+            min="-100"
+            max="100"
+            value="0"
+            oninput="translateYSTree({value})"
+          />
+        </div>
+        <div>
+          <label for="zs-translate" class="slider-label"
+            >Z-S: <span id="zs-distance">0</span></label
+          >
+          <input
+            id="zs-translate"
+            name="zs-translate"
+            min="-100"
+            max="100"
+            value="0"
+            oninput="translateZSTree({value})"
+          />
+        </div>
+        <h3>Scale-S</h3>
+        <div>
+          <label for="xs-scale" class="slider-label"
+            >X-S: <span id="xs-ratio">10</span></label
+          >
+          <input
+            id="xs-scale"
+            name="xs-scale"
+            min="1"
+            max="100"
+            value="10"
+            oninput="scaleXSTree({value})"
+          />
+        </div>
+        <div>
+          <label for="ys-scale" class="slider-label"
+            >Y-S: <span id="ys-ratio">10</span></label
+          >
+          <input
+            id="ys-scale"
+            name="ys-scale"
+            min="1"
+            max="100"
+            value="10"
+            oninput="scaleYSTree({value})"
+          />
+        </div>
+        <div>
+          <label for="zs-scale" class="slider-label"
+            >Z-S: <span id="zs-ratio">10</span></label
+          >
+          <input
+            id="zs-scale"
+            name="zs-scale"
+            min="1"
+            max="100"
+            value="10"
+            oninput="scaleZSTree({value})"
+          />
+        </div>
         <div class="treecontainer" id="treecontainer">
           Tree: <span id="selectedobject">Nothing</span>
           <div id="tree"></div>
@@ -309,6 +453,7 @@
     <script src="js/models/tank.js"></script>
     <script src="js/models/cube.js"></script>
     <script src="js/models/dog.js"></script>
+    <script src="js/models/person.js"></script>
     <script src="js/camera.js"></script>
     <script src="js/transform.js"></script>
     <script src="js/saveLoad.js"></script>
