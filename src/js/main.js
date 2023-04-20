@@ -17,10 +17,10 @@ function onLoad() {
   init();
 
   //Real Model
-  // loadEXPERIMENT();
+  loadDragon();
   // loadTank();
   // loadDog();
-  loadPerson();
+  // loadPerson();
 
   //Model For Texting Texture
   // loadCube();

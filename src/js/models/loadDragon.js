@@ -1,4 +1,4 @@
-function loadEXPERIMENT(){
+function loadDragon(){
     gl.clearColor(0.9296875, 0.91015625, 0.8515625, 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
@@ -16,13 +16,25 @@ function loadEXPERIMENT(){
     maw_mid = new Block(origin = [9.25,16.5,-3], 9  ,2    ,6, obj_name = "MiddleMaw" )
     maw_right = new Block(origin =  [9.25,16.5,5],9 ,2  ,6, obj_name = "RightMaw" )
 
+    fireball_left_1 = new Block(    origin = [9.25 -0.1 , 20.5 - 0.1,   -8.5 -0.1   ],   1.2,  1.2,  1.2, obj_name = "LeftFireball1"  )
+    fireball_left_2 = new Block(    origin = [9.25 -0.05, 20.5 -0.05,   -8.5 -0.05  ],   1.1,  1.1,  1.1, obj_name = "LeftFireball2"  )
+    fireball_left_3 = new Block(    origin = [9.25      , 20.5      ,   -8.5        ],   1,  1,  1, obj_name = "LeftFireball3"  )
+
+    fireball_mid_1 = new Block(     origin = [9.25 -0.1 , 20.5 - 0.1,    -0.5 -0.1  ],    1.2,  1.2,  1.2, obj_name = "MiddleFireball1"  )
+    fireball_mid_2 = new Block(     origin = [9.25 -0.05, 20.5 -0.05,    -0.5 -0.05 ],    1.1,  1.1,  1.1, obj_name = "MiddleFireball3"  )
+    fireball_mid_3 = new Block(     origin = [9.25      , 20.5      ,    -0.5       ],    1,  1,  1, obj_name = "MiddleFireball2"  )
+
+    fireball_right_1 =  new Block(  origin = [9.25 -0.1 , 20.5 - 0.1,   7.5   -0.1   ] , 1.2,  1.2,  1.2, obj_name = "RightFireball1"  )
+    fireball_right_2 =  new Block(  origin = [9.25 -0.05, 20.5 -0.05,   7.5 -0.05    ] , 1.1,  1.1,  1.1, obj_name = "RightFireball2"  )
+    fireball_right_3 =  new Block(  origin = [9.25      , 20.5      ,   7.5          ], 1,  1,  1, obj_name = "RightFireball3"  )
+
+
+
+
+
     wing_left_mid = new Block(origin = [-15.5,14.75,-21.5],15,0.75,9, obj_name = "LeftMainWing" )
-    wing_left_top = new Block(origin = [9.5,2,-9.5],9,7,9, obj_name = "LeftTopWing" )
-    wing_left_bottom = new Block(origin = [9.5,2,-9.5],9,7,9, obj_name = "LeftBotWing" )
-    
+
     wing_right_mid = new Block(origin = [-15.5,14.75,12.5],15,0.75,9, obj_name = "RightMainWing" )
-    wing_right_top = new Block(origin = [9.5,0,-9.5],9,7,9, obj_name = "RightTopWing" )
-    wing_right_bottom = new Block(origin = [9.5,0,-9.5],9,7,9, obj_name = "RightBotWing" )
 
     leg_left = new Block(origin = [-12.5,-9,-14.5],10,18,7, obj_name = "LeftLeg" )
     leg_right = new Block(origin = [-12.5,-9,7.5],10,18,7, obj_name = "RightLeg" )
@@ -46,13 +58,21 @@ function loadEXPERIMENT(){
     head_mid.appendChild(maw_mid)
     head_right.appendChild(maw_right)
 
+    maw_left.appendChild(fireball_left_1)
+    fireball_left_1.appendChild(fireball_left_2)
+    fireball_left_2.appendChild(fireball_left_3)
+
+    maw_mid.appendChild(fireball_mid_1)
+    fireball_mid_1.appendChild(fireball_mid_2)
+    fireball_mid_2.appendChild(fireball_mid_3)
+
+    maw_right.appendChild(fireball_right_1)
+    fireball_right_1.appendChild(fireball_right_2)
+    fireball_right_2.appendChild(fireball_right_3)
+
     body.appendChild(wing_left_mid)
-    // wing_left_mid.appendChild(wing_left_top)
-    // wing_left_mid.appendChild(wing_left_bottom)
 
     body.appendChild(wing_right_mid)
-    // wing_right_mid.appendChild(wing_right_top)
-    // wing_right_mid.appendChild(wing_right_bottom)
 
     body.appendChild(tail_1)
     tail_1.appendChild(tail_2)
@@ -60,21 +80,6 @@ function loadEXPERIMENT(){
     tail_3.appendChild(tail_4)
     tail_4.appendChild(tail_5)
     tail_5.appendChild(tail_6)
-
-    // body.transformSubTree(xRotation(0.26))
-    // neck_left_1.transformSubTree(xRotation(0.26))
-    // neck_mid_1.transformSubTree(xRotation(0.26))
-    // neck_right_1.transformSubTree(xRotation(0.26))
-
-    
-
-    // body.appendChild(wing_left_mid)
-    // wing_left_mid.appendChild(wing_left_top)
-    // wing_left_mid.appendChild(wing_left_bottom)
-
-    // body.appendChild(wing_right_mid)
-    // wing_right_mid.appendChild(wing_right_top)
-    // wing_right_mid.appendChild(wing_right_bottom)
 
     body.appendChild(leg_left)
     body.appendChild(leg_right)
