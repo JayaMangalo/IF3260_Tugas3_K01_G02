@@ -18,8 +18,8 @@ function onLoad() {
 
   //Real Model
   // loadEXPERIMENT();
-  // loadTank();
-  loadDog();
+  loadTank();
+  // loadDog();
   // loadPerson();
 
   //Model For Texting Texture
@@ -60,8 +60,8 @@ function preOrder(node, depth) {
 
 function addListeners() {
   buttonlist = document.getElementById("tree").querySelectorAll("button");
-  console.log(buttonlist);
-  console.log(TreeArray);
+  // console.log(buttonlist);
+  // console.log(TreeArray);
 
   for (let index = 0; index < buttonlist.length; index++) {
     buttonlist[index].addEventListener("click", function () {
@@ -110,8 +110,12 @@ function playAnimation() {
         selectedObject.translation_arr = frames[i][j].translation;
         selectedObject.rotation = frames[i][j].rotation;
         selectedObject.scalation = frames[i][j].scalation;
+        selectedObject.translationSTree = frames[i][j].translationSTree;
+        selectedObject.rotationSTree = frames[i][j].rotationSTree;
+        selectedObject.scalationSTree = frames[i][j].scalationSTree;
 
         transformObject();
+        transformObjectSubTree();
       }
       i++;
       if (i == frames.length) {
@@ -159,7 +163,7 @@ function redraw() {
       requestAnimationFrame(loop);
     }
   };
-  console.log(shapes);
+  // console.log(shapes);
   requestAnimationFrame(loop);
 }
 

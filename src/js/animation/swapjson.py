@@ -2,7 +2,7 @@ import json
 
 # Open the file for reading
 
-filename = 'animationDog.json'
+filename = 'animationLeopard2A4.json'
 with open(filename) as f:
     # Load the JSON data from the file
     data = json.load(f)
@@ -36,6 +36,6 @@ for frames in framearray:
 jsonnn = {"type": "animation", "data": {"frames": framearray}}
 
 #save jsonn into file
-with open('animationDog2.json', 'w') as outfile:
+with open('as.json', 'w') as outfile:
     json.dump(jsonnn, outfile)
 

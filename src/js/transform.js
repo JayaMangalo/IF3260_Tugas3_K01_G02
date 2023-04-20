@@ -82,6 +82,7 @@ function transformObjectSubTree() {
   );
 
   selectedObject.transformSubTree(matrix);
+
   redraw();
 }
 

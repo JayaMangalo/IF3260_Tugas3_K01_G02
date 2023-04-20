@@ -171,7 +171,9 @@ function loadFrame() {
         selectedObject.rotationSTree = frame.rotationSTree;
         selectedObject.scalationSTree = frame.scalationSTree;
 
+        transformObjectSubTree();
         transformObject();
+
       }
     };
   };
