@@ -4,12 +4,12 @@
     "frames": [
       [
         {
-          "translation": [0, "0", "-34"],
-          "rotation": [0, -1.5533430342749535, 0],
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
+          "translationSTree": ["40", "0", 0],
+          "rotationSTree": [0, -2.0943951023931953, 0],
+          "scalationSTree": ["5", "5", "5"]
         },
         {
           "translation": [0, 0, 0],
@@ -45,193 +45,45 @@
         },
         {
           "translation": [0, 0, 0],
-          "rotation": [0, 0, 0.5934119456780721],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0.5235987755982988],
           "scalationSTree": [10, 10, 10]
         },
         {
           "translation": [0, 0, 0],
-          "rotation": [0, 0, -0.5934119456780721],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, -0.5235987755982988],
           "scalationSTree": [10, 10, 10]
         },
         {
           "translation": [0, 0, 0],
-          "rotation": [0, 0, 0.5934119456780721],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0.5235987755982988],
           "scalationSTree": [10, 10, 10]
         },
         {
           "translation": [0, 0, 0],
-          "rotation": [0, 0, -0.5934119456780721],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, -0.5235987755982988],
           "scalationSTree": [10, 10, 10]
         }
       ],
       [
         {
-          "translation": [0, "0", "-28"],
-          "rotation": [0, -1.5533430342749535, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
           "translation": [0, 0, 0],
           "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        }
-      ],
-      [
-        {
-          "translation": [0, "0", "-22"],
-          "rotation": [0, -1.5533430342749535, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, -0.5934119456780721],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0.5934119456780721],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, -0.5934119456780721],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0.5934119456780721],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        }
-      ],
-      [
-        {
-          "translation": [0, "0", "-16"],
-          "rotation": [0, -1.5533430342749535, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
+          "translationSTree": ["37", "-1", 0],
+          "rotationSTree": [0, -2.0943951023931953, 0],
+          "scalationSTree": ["5", "5", "5"]
         },
         {
           "translation": [0, 0, 0],
@@ -300,12 +152,12 @@
       ],
       [
         {
-          "translation": [0, "0", "-9"],
-          "rotation": [0, -1.5533430342749535, 0],
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
+          "translationSTree": ["34", "-2", 0],
+          "rotationSTree": [0, -2.0943951023931953, 0],
+          "scalationSTree": ["5", "5", "5"]
         },
         {
           "translation": [0, 0, 0],
@@ -341,45 +193,45 @@
         },
         {
           "translation": [0, 0, 0],
-          "rotation": [0, 0, 0.5934119456780721],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, -0.5235987755982988],
           "scalationSTree": [10, 10, 10]
         },
         {
           "translation": [0, 0, 0],
-          "rotation": [0, 0, -0.5934119456780721],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0.5235987755982988],
           "scalationSTree": [10, 10, 10]
         },
         {
           "translation": [0, 0, 0],
-          "rotation": [0, 0, 0.5934119456780721],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, -0.5235987755982988],
           "scalationSTree": [10, 10, 10]
         },
         {
           "translation": [0, 0, 0],
-          "rotation": [0, 0, -0.5934119456780721],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0.5235987755982988],
           "scalationSTree": [10, 10, 10]
         }
       ],
       [
         {
-          "translation": [0, "0", "-5"],
-          "rotation": [0, -1.5533430342749535, 0],
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
+          "translationSTree": ["31", "-3", 0],
+          "rotationSTree": [0, -2.0943951023931953, 0],
+          "scalationSTree": ["5", "5", "5"]
         },
         {
           "translation": [0, 0, 0],
@@ -430,155 +282,7 @@
           "scalationSTree": [10, 10, 10]
         },
         {
-          "translation": [0, 0, "-3"],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
           "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        }
-      ],
-      [
-        {
-          "translation": [0, "0", "2"],
-          "rotation": [0, -1.5533430342749535, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, -0.5934119456780721],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0.5934119456780721],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, "-3"],
-          "rotation": [0, 0, -0.5934119456780721],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0.5934119456780721],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        }
-      ],
-      [
-        {
-          "translation": [0, "0", "8"],
-          "rotation": [0, -1.5533430342749535, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, 0],
-          "rotation": [0, 0, 0],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, "-3"],
           "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
@@ -596,12 +300,12 @@
       ],
       [
         {
-          "translation": [0, "0", "14"],
-          "rotation": [0, -1.5533430342749535, 0],
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
+          "translationSTree": ["28", "-4", 0],
+          "rotationSTree": [0, -2.0943951023931953, 0],
+          "scalationSTree": ["6", "6", "6"]
         },
         {
           "translation": [0, 0, 0],
@@ -637,45 +341,45 @@
         },
         {
           "translation": [0, 0, 0],
-          "rotation": [0, 0, 0.5934119456780721],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0.5235987755982988],
           "scalationSTree": [10, 10, 10]
         },
         {
           "translation": [0, 0, 0],
-          "rotation": [0, 0, -0.5934119456780721],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, "-3"],
-          "rotation": [0, 0, 0.5934119456780721],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, -0.5235987755982988],
           "scalationSTree": [10, 10, 10]
         },
         {
           "translation": [0, 0, 0],
-          "rotation": [0, 0, -0.5934119456780721],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0.5235987755982988],
           "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, -0.5235987755982988],
+          "scalationSTree": ["10", "10", "10"]
         }
       ],
       [
         {
-          "translation": [0, "0", "20"],
-          "rotation": [0, -1.5533430342749535, 0],
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
+          "translationSTree": ["25", "-5", 0],
+          "rotationSTree": [0, -2.0943951023931953, 0],
+          "scalationSTree": ["6", "6", "6"]
         },
         {
           "translation": [0, 0, 0],
@@ -726,7 +430,7 @@
           "scalationSTree": [10, 10, 10]
         },
         {
-          "translation": [0, 0, "-3"],
+          "translation": [0, 0, 0],
           "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
@@ -739,17 +443,17 @@
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
           "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
+          "scalationSTree": ["10", "10", "10"]
         }
       ],
       [
         {
-          "translation": [0, "0", "26"],
-          "rotation": [0, -1.5533430342749535, 0],
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
+          "translationSTree": ["22", "-6", 0],
+          "rotationSTree": [0, -2.0943951023931953, 0],
+          "scalationSTree": ["6", "6", "6"]
         },
         {
           "translation": [0, 0, 0],
@@ -785,45 +489,45 @@
         },
         {
           "translation": [0, 0, 0],
-          "rotation": [0, 0, -0.5934119456780721],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, -0.5235987755982988],
           "scalationSTree": [10, 10, 10]
         },
         {
           "translation": [0, 0, 0],
-          "rotation": [0, 0, 0.5934119456780721],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, "-3"],
-          "rotation": [0, 0, -0.5934119456780721],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0.5235987755982988],
           "scalationSTree": [10, 10, 10]
         },
         {
           "translation": [0, 0, 0],
-          "rotation": [0, 0, 0.5934119456780721],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, -0.5235987755982988],
           "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0.5235987755982988],
+          "scalationSTree": ["10", "10", "10"]
         }
       ],
       [
         {
-          "translation": [0, "0", "32"],
-          "rotation": [0, -1.5533430342749535, 0],
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
+          "translationSTree": ["19", "-7", 0],
+          "rotationSTree": [0, -2.0943951023931953, 0],
+          "scalationSTree": ["6", "6", "6"]
         },
         {
           "translation": [0, 0, 0],
@@ -874,7 +578,7 @@
           "scalationSTree": [10, 10, 10]
         },
         {
-          "translation": [0, 0, "-3"],
+          "translation": [0, 0, 0],
           "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
@@ -887,17 +591,17 @@
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
           "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
+          "scalationSTree": ["10", "10", "10"]
         }
       ],
       [
         {
-          "translation": [0, "0", "38"],
-          "rotation": [0, -1.5533430342749535, 0],
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
+          "translationSTree": ["16", "-8", 0],
+          "rotationSTree": [0, -2.0943951023931953, 0],
+          "scalationSTree": ["7", "7", "7"]
         },
         {
           "translation": [0, 0, 0],
@@ -933,45 +637,45 @@
         },
         {
           "translation": [0, 0, 0],
-          "rotation": [0, 0, 0.5934119456780721],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0.5235987755982988],
           "scalationSTree": [10, 10, 10]
         },
         {
           "translation": [0, 0, 0],
-          "rotation": [0, 0, -0.5934119456780721],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
-        },
-        {
-          "translation": [0, 0, "-3"],
-          "rotation": [0, 0, 0.5934119456780721],
-          "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, -0.5235987755982988],
           "scalationSTree": [10, 10, 10]
         },
         {
           "translation": [0, 0, 0],
-          "rotation": [0, 0, -0.5934119456780721],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0.5235987755982988],
           "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, -0.5235987755982988],
+          "scalationSTree": ["10", "10", "10"]
         }
       ],
       [
         {
-          "translation": [0, "0", "44"],
-          "rotation": [0, -1.5533430342749535, 0],
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
-          "translationSTree": [0, 0, 0],
-          "rotationSTree": [0, 0, 0],
-          "scalationSTree": [10, 10, 10]
+          "translationSTree": ["13", "-9", 0],
+          "rotationSTree": [0, -2.0943951023931953, 0],
+          "scalationSTree": ["7", "7", "7"]
         },
         {
           "translation": [0, 0, 0],
@@ -1022,7 +726,33 @@
           "scalationSTree": [10, 10, 10]
         },
         {
-          "translation": [0, 0, "-3"],
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": ["10", "10", "10"]
+        }
+      ],
+      [
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": ["10", "-9", 0],
+          "rotationSTree": [0, -2.0943951023931953, 0],
+          "scalationSTree": ["7", "7", "7"]
+        },
+        {
+          "translation": [0, 0, 0],
           "rotation": [0, 0, 0],
           "scalation": [10, 10, 10],
           "translationSTree": [0, 0, 0],
@@ -1036,6 +766,720 @@
           "translationSTree": [0, 0, 0],
           "rotationSTree": [0, 0, 0],
           "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, -0.5235987755982988],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0.5235987755982988],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, -0.5235987755982988],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0.5235987755982988],
+          "scalationSTree": ["10", "10", "10"]
+        }
+      ],
+      [
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": ["7", "-10", 0],
+          "rotationSTree": [0, -2.0943951023931953, 0],
+          "scalationSTree": ["7", "7", "7"]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": ["10", "10", "10"]
+        }
+      ],
+      [
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": ["4", "-11", 0],
+          "rotationSTree": [0, -2.0943951023931953, 0],
+          "scalationSTree": ["8", "8", "8"]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0.5235987755982988],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, -0.5235987755982988],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0.5235987755982988],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, -0.5235987755982988],
+          "scalationSTree": ["10", "10", "10"]
+        }
+      ],
+      [
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": ["1", "-12", 0],
+          "rotationSTree": [0, -2.0943951023931953, 0],
+          "scalationSTree": ["8", "8", "8"]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": ["10", "10", "10"]
+        }
+      ],
+      [
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": ["-2", "-13", 0],
+          "rotationSTree": [0, -2.0943951023931953, 0],
+          "scalationSTree": ["8", "8", "8"]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, -0.5235987755982988],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0.5235987755982988],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, -0.5235987755982988],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0.5235987755982988],
+          "scalationSTree": ["10", "10", "10"]
+        }
+      ],
+      [
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": ["-5", "-14", 0],
+          "rotationSTree": [0, -2.0943951023931953, 0],
+          "scalationSTree": ["8", "8", "8"]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": ["10", "10", "10"]
+        }
+      ],
+      [
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": ["-8", "-15", 0],
+          "rotationSTree": [0, -2.0943951023931953, 0],
+          "scalationSTree": ["9", "9", "9"]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0.5235987755982988],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, -0.5235987755982988],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0.5235987755982988],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, -0.5235987755982988],
+          "scalationSTree": ["10", "10", "10"]
+        }
+      ],
+      [
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": ["-11", "-16", 0],
+          "rotationSTree": [0, -2.0943951023931953, 0],
+          "scalationSTree": ["9", "9", "9"]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": ["10", "10", "10"]
+        }
+      ],
+      [
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": ["-14", "-17", 0],
+          "rotationSTree": [0, -2.0943951023931953, 0],
+          "scalationSTree": ["9", "9", "9"]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, -0.5235987755982988],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0.5235987755982988],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, -0.5235987755982988],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0.5235987755982988],
+          "scalationSTree": ["10", "10", "10"]
+        }
+      ],
+      [
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": ["-17", "-18", 0],
+          "rotationSTree": [0, -2.0943951023931953, 0],
+          "scalationSTree": ["9", "9", "9"]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": [10, 10, 10]
+        },
+        {
+          "translation": [0, 0, 0],
+          "rotation": [0, 0, 0],
+          "scalation": [10, 10, 10],
+          "translationSTree": [0, 0, 0],
+          "rotationSTree": [0, 0, 0],
+          "scalationSTree": ["10", "10", "10"]
         }
       ]
     ]

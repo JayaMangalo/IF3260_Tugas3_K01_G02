@@ -4,7 +4,7 @@ function loadDog() {
 
   body = new Block((origin = [-20, 0, -12.5]), 25, 10, 20, (obj_name = "Body"));
   head = new Block((origin = [4, 8, -8.5]), 10, 10, 12, (obj_name = "Head"));
-  mouth = new Block((origin = [14, 8, -5.5]), 8, 6, 8, (obj_name = "Mouth"));
+  mouth = new Block((origin = [14, 8, -6.5]), 8, 6, 8, (obj_name = "Mouth"));
   leftEar = new Block(
     (origin = [5, 18, -0.5]),
     2,
