@@ -259,7 +259,9 @@ function loadAnimation() {
           }
           frames.push(transform);
           startFrame = 0;
+          document.getElementById("start-frame").value = startFrame;
           endFrame = frames.length - 1;
+          document.getElementById("end-frame").value = endFrame;
         }
       }
     };
