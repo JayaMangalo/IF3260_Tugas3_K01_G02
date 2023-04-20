@@ -13,7 +13,7 @@ const REMOVED_BATANG = {
   BELAKANG_KIRI: 11,
 };
 
-class TriangularPrism extends Object {
+class TriangularPrism extends Obj {
   constructor(origin, length, height, width, removed_batang, obj_name) {
     super(obj_name);
 

@@ -1,4 +1,4 @@
-class Block extends Object {
+class Block extends Obj {
   constructor(origin, length, height, width, obj_name) {
     super(obj_name);
 

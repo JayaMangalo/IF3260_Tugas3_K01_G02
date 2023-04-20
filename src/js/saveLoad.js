@@ -113,7 +113,40 @@ function saveComponent() {
 }
 
 function loadComponent() {
+  var input = document.createElement("input");
+  input.type = "file";
+  input.accept = ".json";
+  input.onchange = (e) => {
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.readAsText(file, "UTF-8");
+    reader.onload = (readerEvent) => {
+      var content = readerEvent.target.result;
+      var json = JSON.parse(content);
+      if (json.type != "model") {
+        alert("Invalid file");
+        return;
+      }
+      // only load the first model
+      const model = json.data[0];
+      var obj = traverseComponents(model);
+      modify(selectedObject, obj);
+      TreeArray = [];
+      traverseTree();
+      redraw();
+    };
+  };
+  input.click();
+}
 
+function modify(obj, newObj) {
+  Object.keys(obj).forEach(function(key) {
+    delete obj[key];
+  });
+
+  Object.keys(newObj).forEach(function(key) {
+    obj[key] = newObj[key];
+  });
 }
 
 function saveFrame() {
