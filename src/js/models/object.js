@@ -1,4 +1,4 @@
-class Object {
+class Obj {
   constructor(obj_name) {
     this.name = obj_name
 
