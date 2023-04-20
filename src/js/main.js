@@ -20,17 +20,18 @@ function onLoad() {
   // loadEXPERIMENT();
   // loadTank();
   // loadDog();
+  loadPerson();
 
   //Model For Texting Texture
-  loadCube();
+  // loadCube();
 
   traverseTree(shapes);
   redraw();
 
-  document.getElementById("camera-angle-x").value = 0; //for testing purposes, remove later
-  document.getElementById("camera-angle-y").value = 90;
-  changeAngleX();
-  changeAngleY();
+  // document.getElementById("camera-angle-x").value = 0; //for testing purposes, remove later
+  // document.getElementById("camera-angle-y").value = 90;
+  // changeAngleX();
+  // changeAngleY();
 }
 
 function preOrder(node, depth) {
@@ -85,7 +86,7 @@ function traverseTree() {
   setCurrentObject(0);
 }
 
-function changeFPS(){
+function changeFPS() {
   fps = document.getElementById("fps").value;
   document.getElementById("fps-value").innerHTML = fps;
 }
