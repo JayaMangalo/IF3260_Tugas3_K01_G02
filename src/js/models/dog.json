@@ -20,7 +20,7 @@
             {
               "type": "block",
               "name": "Mouth",
-              "origin": [14, 8, -5.5],
+              "origin": [14, 8, -6.5],
               "length": 8,
               "height": 6,
               "width": 8,
