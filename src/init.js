@@ -347,14 +347,14 @@ function init() {
   //Load image from texture, bumptexture, pox-x, neg-x, pos-y, neg-y, pos-z, neg-z
   loadImages(
     [
-      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/dragonscale.jpg",
-      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/bump.png",
-      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/pos-x.jpg",
-      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/neg-x.jpg",
-      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/pos-y.jpg",
-      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/neg-y.jpg",
-      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/pos-z.jpg",
-      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/neg-z.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/textures/dragonscale.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/textures/bump.png",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/textures/pos-x.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/textures/neg-x.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/textures/pos-y.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/textures/neg-y.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/textures/pos-z.jpg",
+      "https://raw.githubusercontent.com/JayaMangalo/IF3260_Tugas2_K01_G02/main/assets/textures/neg-z.jpg",
     ],
     renderTexture
   );
